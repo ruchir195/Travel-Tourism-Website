@@ -1,0 +1,709 @@
+<%- include('partials/header') %>
+
+    <body>
+        <!-- <div id="preloader"></div> -->
+
+        <div>
+            <!-- 1.navbar -->
+
+            <%- include('partials/navbar') %>
+
+                <!--2. carousel -->
+                <div>
+
+                 
+
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+                        </div>
+
+
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner">
+
+                            <% if(messagesSuccessComment.length> 0){ %>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert" id="msgShowTime">
+                                    <strong><i class="fa-solid fa-circle-check fa-xl mx-3" style="color: #195744;"></i></strong>
+                                    <%= messagesSuccessComment %>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            <% } %>
+        
+                            
+                    <script>
+                        const errorAlert = document.getElementById('msgShowTime');
+                        if (errorAlert) {
+                            setTimeout(function () {
+                                errorAlert.style.display = 'none';
+                            }, 5000);
+                        }
+                    </script>
+                            <div class="carousel-item active">
+                                <img src="../Images/CarouselImg/kedarnath.jpg" id="horizontalImage" alt="Los Angeles"
+                                    class="w-100 carousel-img">
+                                <img src="../Images/navDropImg/k23.jpg" id="verticalImage" alt="Los Angeles"
+                                    class="w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>kedarnath</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/images.jpg" id="horizontalImage" alt="Los Angeles"
+                                    class="w-100 carousel-img">
+                                <img src="../Images/navDropImg/himachal-2.jpg" id="verticalImage" alt="Los Angeles"
+                                    class="w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Somnath</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/Ooty-1.jpg" id="horizontalImage" alt="New York"
+                                    class=" w-100 carousel-img">
+                                <img src="../Images/navDropImg/Rajasthan-1.jpg" id="verticalImage" alt="Los Angeles"
+                                    class=" w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Ooty</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/Kerala-1.jpg" id="horizontalImage" alt="New York"
+                                    class=" w-100 carousel-img">
+                                <img src="../Images/navDropImg/rishikesh-2.jpg" id="verticalImage" alt="Los Angeles"
+                                    class=" w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Kerala</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/Goa.jpg" id="horizontalImage" alt="New York"
+                                    class=" w-100 carousel-img">
+                                <img src="../Images/navDropImg/Statue-of-unity-2.jpg" id="verticalImage"
+                                    alt="Los Angeles" class=" w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Goa</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+
+                            </div>
+
+
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/jaipur-4.jpg" id="horizontalImage" alt="New York"
+                                    class=" w-100 carousel-img">
+                                <img src="../Images/navDropImg/valley of Flowers-2.jpg" id="verticalImage"
+                                    alt="Los Angeles" class=" w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Jaipur</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Images/CarouselImg/Gira.jpg" id="horizontalImage" alt="New York"
+                                    class=" w-100 carousel-img">
+                                <img src="../Images/navDropImg/tajMahel up-5.jpg" id="verticalImage" alt="Los Angeles"
+                                    class=" w-100 carousel-img" style="height: 500px;">
+                                <div class="carousel-caption eventBtn name">
+                                    <h5>Gira Waterfall</h5>
+                                    <button type="button" class="eventButton"><a href="event">Event</a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+
+                        </button>
+                    </div>
+
+
+                </div>
+
+                <!-- 3. Popular Event -->
+                <div class="container_white">
+                    <div class="container">
+                        <div class="padd-top-bottom">
+                            <h2 class="navbar-dark">Popular Events</h2>
+                            <div class="mar-right-left padd-right-left  containerpebi9">
+
+
+                                <% data.forEach(function(item){ %>
+                                    <div class="event mr-5">
+                                        <a href="../place/<%= item.placeName %>">
+                                            <!-- <img loading="lazy" src="../images/statue of unoity.jpg" alt="" class="img img-fluid"> -->
+                                            <img loading="lazy" src="data:image/<%=item.imgFrontEvent.contentType%>;base64,
+                                <%=item.imgFrontEvent.data.toString('base64')%>" class="img img-fluid" alt="..." />
+                                        </a>
+                                    </div>
+                                    <% }) %>
+
+                                        <!-- <div class="event mr-5">
+                                <a href="../place/pHimachalPradesh"><img loading="lazy"
+                                        src="../images/himachal pradesh.jpg" alt="" class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pkashmir"><img loading="lazy" src="../images/kashmir.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pkedarnath"><img loading="lazy" src="../images/kedarnath.jpg"
+                                        alt="" class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/rajasthan"><img loading="lazy" src="../images/rajasthan.jpg"
+                                        alt="" class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Gujarat"><img loading="lazy" src="../images/gujarat.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pbeytdwarka"><img loading="lazy" src="../images/beyt dwarka.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/ladakh"><img loading="lazy" src="../images/ladakh.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/kasol"><img loading="lazy" src="../images/kasol-1.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Goa"><img loading="lazy" src="../images/goa-2.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pTajmahal"><img loading="lazy" src="../Images/agra.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 4. Winter Event -->
+                <div class="container_white">
+                    <div class="container">
+                        <div class="padd-top-bottom">
+                            <h2 class="navbar-dark">Winter Events</h2>
+                            <div class="mar-right-left padd-right-left  containerpebi9">
+
+                                <% winterData.forEach(function(item){ %>
+                                    <div class="event mr-5">
+                                        <a href="../place/<%= item.placeName %>">
+                                            <!-- <img loading="lazy" src="../images/rajasthan.jpg"alt="" class="img img-fluid" id="seasonEvents"> -->
+                                            <img loading="lazy" src="data:image/<%=item.imgFrontEvent.contentType%>;base64,
+                                        <%=item.imgFrontEvent.data.toString('base64')%>" class="img img-fluid"
+                                                alt="..." id="seasonEvents" />
+                                        </a>
+                                    </div>
+                                    <% }) %>
+
+
+                                        <!-- <div class="event mr-5">
+                                <a href="../place/Jaipur.html"><img loading="lazy" src="../images/jaipur.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Jaiselmer.html"><img loading="lazy" src="../images/jaisalmer.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/MountAbu.html"><img loading="lazy" src="../images/mount abu.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Kutch.html"><img loading="lazy" src="../images/kutch-1.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/udaipur.html"><img loading="lazy" src="../images/udaipur-1.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/kerala.html"><img loading="lazy" src="../images/kerla.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pbeytdwarka.html"><img loading="lazy" src="../images/beyt dwarka.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+                            ../
+                            <div class="event mr-5">
+                                <a href="../place/Tirupati.html"><img loading="lazy" src="../images/tirupati balaji.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Shimla.html"><img loading="lazy" src="../images/simla.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/pHimachalPradesh.html"><img loading="lazy"
+                                        src="../images/himachal pradesh.jpg" alt="" class="img img-fluid"
+                                        id="seasonEvents"></a>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Monsoon Event -->
+                <div class="container_white">
+                    <div class="container">
+                        <div class="padd-top-bottom">
+                            <h2 class="navbar-dark">Monsoon Events</h2>
+                            <div class="mar-right-left padd-right-left  containerpebi9">
+
+                                <% monsoonData.forEach(function(item){ %>
+                                    <div class="event mr-5">
+                                        <a href="../place/<%= item.placeName %>">
+                                            <!-- <img loading="lazy" src="../images/meghalaya.jpg" alt="" class="img img-fluid" id="seasonEvents"> -->
+                                            <img loading="lazy" src="data:image/<%=item.imgFrontEvent.contentType%>;base64,
+                                            <%=item.imgFrontEvent.data.toString('base64')%>" class="img img-fluid"
+                                                alt="..." id="seasonEvents" />
+                                        </a>
+                                    </div>
+                                    <% }) %>
+
+                                        <!-- 
+                            <div class="event mr-5">
+                                <a href="../place/mvallyofflower.html"><img loading="lazy"
+                                        src="../images/valley of flower.jpg" alt="" class="img img-fluid"
+                                        id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/mpoloforest.html"><img loading="lazy" src="../images/polo forest.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/mdang.html"><img loading="lazy" src="../images/dang-1.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/msaputara.html"><img loading="lazy" src="../images/saputara-1.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/delhi.html"><img loading="lazy" src="../images/delhi.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/ladakh.html"><img loading="lazy" src="../images/ladakh.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/lakshadweep.html"><img loading="lazy"
+                                        src="../images/lakshadweep-2.jpg" alt="" class="img img-fluid"
+                                        id="seasonEvents"></a>
+                            </div>
+
+
+                            <div class="event mr-5">
+                                <a href="../place/psomanath.html"><img loading="lazy" src="../images/somanath.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/ooty.html"><img loading="lazy" src="../images/ooty.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 6. Summer Event -->
+                <div class="container_white">
+                    <div class="container">
+                        <div class="padd-top-bottom">
+                            <h2 class="navbar-dark">Summer Events</h2>
+                            <div class="mar-right-left padd-right-left  containerpebi9">
+
+
+                                <% summerData.forEach(function(item){ %>
+                                    <div class="event mr-5">
+                                        <a href="../place/<%= item.placeName %>">
+                                            <!-- <img loading="lazy" src="../images/himachal pradesh.jpg" alt="" class="img img-fluid"> -->
+                                            <img loading="lazy" src="data:image/<%=item.imgFrontEvent.contentType%>;base64,
+                                                <%=item.imgFrontEvent.data.toString('base64')%>" class="img img-fluid"
+                                                alt="..." />
+                                        </a>
+                                    </div>
+                                    <% }) %>
+
+
+                                        <!-- <div class="event mr-5">
+                                <a href="../place/pkashmir.html"><img loading="lazy" src="../images/kashmir.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/kasol.html"><img loading="lazy" src="../images/kasol-2.jpg" alt=""
+                                        class="img img-fluid"></a>
+                            </div>
+
+
+                            <div class="event mr-5">
+                                <a href="../place/Dalhousie.html"><img loading="lazy" src="../images/dalhousie.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Manli.html"><img loading="lazy" src="../images/manali.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+
+                            <div class="event mr-5">
+                                <a href="../place/Shimla.html"><img loading="lazy" src="../images/simla.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Mumbai.html"><img loading="lazy" src="../images/mumbai-1.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+
+                            <div class="event mr-5">
+                                <a href="../place/Darjeeling.html"><img loading="lazy" src="../images/darjeeling.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+
+                            <div class="event mr-5">
+                                <a href="../place/Andaman.html"><img loading="lazy" src="../images/andaman.jpg" alt=""
+                                        class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Rishikesh.html"><img loading="lazy" src="../images/rishikesh.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div>
+
+                            <div class="event mr-5">
+                                <a href="../place/Diu-Daman.html"><img loading="lazy" src="../images/diu daman.jpg"
+                                        alt="" class="img img-fluid" id="seasonEvents"></a>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 7. States -->
+                <div class="container_white">
+                    <div class="container">
+                        <div class="padd-top-bottom">
+                            <h2 class="navbar-dark">States</h2>
+                            <div class="mar-right-left padd-right-left  containerpebi9">
+                                <% statesData.forEach(function(item){ %>
+                                    <div class="eventState mr-5">
+                                        <a href="../place/<%= item.placeName %>">
+                                            <!-- <img loading="lazy" src="../Images/stateImages/gujarat.jpg" alt="" class="img img-fluid" id="state"> -->
+                                            <img loading="lazy" src="data:image/<%=item.imgFrontEvent.contentType%>;base64,
+                                                        <%=item.imgFrontEvent.data.toString('base64')%>"
+                                                class="img img-fluid" alt="..." id="state" />
+                                        </a>
+                                        <div id="stateName">
+                                            <a href="../place/<%= item.placeName %>">
+                                                <%= item.placeName %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+
+
+                                        <!-- <div class="eventState mr-5">
+                                <a href="../place/rajasthan.html"><img loading="lazy"
+                                        src="../Images/stateImages/rajasthan.jpg" alt="" class="img img-fluid"
+                                        id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/rajasthan.html">Rajasthan</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/pHimachalPradesh.html"><img loading="lazy"
+                                        src="../Images/stateImages/himachal pradesh.jpg" alt="" class="img img-fluid"
+                                        id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/pHimachalPradesh.html">Himachal Pradesh</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/pkashmir.html"><img loading="lazy"
+                                        src="../Images/stateImages/kashmir-1.jpeg" alt="" class="img img-fluid"
+                                        id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/pkashmir.html">Kashmir</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/Goa.html"><img loading="lazy" src="../Images/stateImages/goa-1.jpg"
+                                        alt="" class="img img-fluid" id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/Goa.html">Goa</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/kerala.html"><img loading="lazy"
+                                        src="../Images/stateImages/kerala.jpeg" alt="" class="img img-fluid"
+                                        id="state"></a>
+                                <div id="stateName">
+                                    <a href="place/kerala.html">Kerala</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/delhi.html"><img loading="lazy" src="../Images/stateImages/Delhi.jpg"
+                                        alt="" class="img img-fluid" id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/delhi.html">Delhi</a>
+                                </div>
+                            </div>
+
+                            <div class="eventState mr-5">
+                                <a href="../place/pTajmahal.html"><img loading="lazy"
+                                        src="../Images/stateImages/tajMahel up-5.jpg" alt="" class="img img-fluid"
+                                        id="state"></a>
+                                <div id="stateName">
+                                    <a href="../place/pTajmahal.html">Uttar Pradesh</a>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 8. Story -->
+                <div class="mt-5 my-5">
+                    <div class="container">
+                        <h2 class="navbar-dark">Why people ❤️ Jouryner</h2>
+                        <h5 class="opa6">Experience the best with us</h5>
+                        <div class="row mt-2 mar-right-left padd-right-left commentCarousle">
+                            <% commentData.forEach((item, index)=>{ %>
+                                <div class="col-12 col-md-6 col-lg-4 py-3 mb-5 containercomment">
+                                    <% if (item && item.profileimg && item.profileimg.contentType &&
+                                        item.profileimg.data) { %>
+                                        <img loading="lazy" src="data:image/<%=item.profileimg.contentType%>;base64,
+                                            <%=item.profileimg.data.toString('base64')%>" class="mb-4" alt="..." />
+                                        <% } else { %>
+                                            <!-- You might display a placeholder image or an alternative content here -->
+                                            <!-- <img src="../images/userLogo-2.png" alt="" class="mb-4"> -->
+                                            <% } %>
+
+                                                <% /* %>
+                                                    <% if(item.profileimg){ %>
+                                                        <img loading="lazy" src="data:image/<%=item.profileimg.contentType%>;base64,
+                                            <%=item.profileimg.data.toString('base64')%>" class="mb-4" alt="..." />
+                                                        <% }else{ %>
+                                                            <img src="../images/userLogo-2.png" alt="" class="mb-4">
+                                                            <% } %>
+
+                                                                <% */ %>
+
+                                                                    <div>
+                                                                        <div>
+                                                                            <%= item.title %>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="star-rating">
+                                                                                <span>
+                                                                                    <%= item.rating %>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="commenttext">
+                                                                            <p>
+                                                                                <%= item.comment.slice(0,490) %>
+                                                                                    <span class="dots"
+                                                                                        id="dots<%= index %>">...</span>
+                                                                                    <span class="more"
+                                                                                        id="more<%= index %>">
+                                                                                        <%= item.comment.slice(489,
+                                                                                            item.comment.length) %>
+                                                                                    </span>
+                                                                                    <button
+                                                                                        onclick="myFunction('<%= index %>');"
+                                                                                        class="myBtn"
+                                                                                        id="myBtn<%= index %>">Read more
+                                                                                    </button>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                        <% if(!isAuthenticated) { %>
+
+                            <% } else { %>
+                                <div >
+                                    <button type="button" id="popUp" data-toggle="modal" data-target="#comment"> Add Comment</button>
+                                     <!-- <div class="modal fade" id="comment" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h1>Ruchir PArmar</h1>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="modal fade" id="comment">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color: lightskyblue;">
+                                                    <h4 class="modal-title"> User Information </h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                            
+                                                <div class="modal-body">
+                                                    <div class="container my-3 mt-5">
+                                                        <h1>Welcome To Comment Section</h1>
+                                                        <hr>
+                                                        <div class=" my-4">
+                                                            <div class="card-body">
+                                                                <!-- <div class="form-group"> -->
+                                                                <form action="/comment" method="post" enctype="multipart/form-data">
+                                                                    <div class="my-3 mt-5">
+                                                                        <h5>Add Profile Image</h5>
+                                                                        <input class="form-control" type="file" id="image2" name="profileimg" value="" />
+                                                                    </div>
+                                                                    
+                                                                    <div class="my-4">
+                                                                        <h5 class="card-title">Add Name</h5>
+                                                                        <input type="text" class="form-control mt-2" id="addTitle" name="title" aria-describedby="title"
+                                                                            placeholder="Enter Name">
+                                                                        <small id="title" class="form-text text-muted invalid-feedback">
+                                                                            Your username must be 2-10 characters long and should not start with a number
+                                                                        </small>
+                                                                    </div>
+                                            
+                                                                    <!-- </div> -->
+                                            
+                                                                    <h5 class="card-title">Add Rating</h5>
+                                            
+                                                                      <!-- <div class="star-rating">
+                                                                        <input type="text" class="star" data-rating="1" name="rate1" value="&#9733;" />
+                                                                        <input type="text" class="star" data-rating="2" name="rate1" value="&#9733;" />
+                                                                        <input type="text" class="star" data-rating="3" name="rate3" value="&#9733;" />
+                                                                        <input type="text" class="star" data-rating="4" name="rate4" value="&#9733;" />
+                                                                        <input type="text" class="star" data-rating="5" name="rate5" value="&#9733;" />
+                                                                      </div>
+                                                                      <input type="text" id="result" name="rating" value=""/> -->
+                                                                    <div class="star-rating my-4 mt-2">
+                                                                    <label>
+                                                                        <input type="radio" class="star" name="rating" value="⭐" /> ⭐
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" class="star" name="rating" value="⭐⭐" /> ⭐⭐
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" class="star" name="rating" value="⭐⭐⭐" /> ⭐⭐⭐
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" class="star" name="rating" value="⭐⭐⭐⭐" /> ⭐⭐⭐⭐
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" class="star" name="rating" value="⭐⭐⭐⭐⭐" /> ⭐⭐⭐⭐⭐
+                                                                    </label>
+                                                                    </div>
+                                                                      
+                                            
+                                                                    <div class="my-4 mt-2">
+                                                                        <h5 class="card-title my-2">Add a Comment</h5>
+                                                                        <div class="form-group">
+                                                                            <textarea class="form-control" id="addTxt" name="comment" rows="3"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                            
+                                                                    <button class="btn btn-primary my-2" id="addBtn">Add Comment</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+
+                                   
+                    </div>
+                </div>
+
+
+                <!-- 9. footer -->
+                <%- include('partials/footer') %>
+        </div>
+    </body>
+
+    </html>

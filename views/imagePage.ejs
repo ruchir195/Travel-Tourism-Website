@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Image Uploading</title>
+</head> -->
+<%- include('partials/eventHeader') %>
+
+
+	<body>
+		<%- include('partials/navbar') %>
+			<div class="container mt-3">
+				<h1>Place Page Information</h1>
+				<hr />
+				<div class="container my-5">
+					<form action="/place" method="POST" enctype="multipart/form-data">
+
+						<div class="mb-3">
+							<label for="placeName" class="form-label">Place Name :</label>
+							<input type="text" class="form-control" id="placeName" name="placeName" required />
+						</div>
+						<div class="mb-3">
+							<label for="duration" class="form-label">Duration :</label>
+							<input type="text" class="form-control" id="duration" name="duration" required />
+						</div>
+						<div class="mb-3">
+							<label for="price" class="form-label">Price :</label>
+							<input type="text" class="form-control" id="price" name="price" required />
+						</div>
+						<div class="mb-3">
+							<label for="greeting" class="form-label">Greeting :</label>
+							<input type="text" class="form-control" id="greeting" name="greeting" required />
+						</div>
+						<div class="mb-3">
+							<label for="age" class="form-label">Age :</label>
+							<input type="text" class="form-control" id="age" name="age" required />
+						</div>
+						<div class="mb-3">
+							<label for="hotelName" class="form-label">Hotel Name :</label>
+							<input type="text" class="form-control" id="hotelName" name="hotelName" required />
+						</div>
+						<div class="mb-3">
+							<label for="image2" class="form-label">Main Image :</label>
+							<input class="form-control" type="file" id="image2" name="image2" value="" required />
+						</div>
+						<div class="mb-3">
+							<label for="image3" class="form-label">Carousel Image1 :</label>
+							<input class="form-control" type="file" id="image3" name="image3" value="" required />
+						</div>
+						<div class="mb-3">
+							<label for="image4" class="form-label">Carousel Image2 :</label>
+							<input class="form-control" type="file" id="image4" name="image4" value="" required />
+						</div>
+						<div class="mb-3">
+							<label for="image5" class="form-label">Carousel Image3 :</label>
+							<input class="form-control" type="file" id="image5" name="image5" value="" required />
+						</div>
+						<div class="mb-3">
+							<label for="placeContent" class="form-label">Place Content :</label>
+							<textarea class="form-control" id="placeContent" rows="3" name="placeContent"
+								required></textarea>
+						</div>
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<hr />
+			</div>
+
+
+	</body>
+
+	</html>

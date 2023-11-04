@@ -1,0 +1,85 @@
+<%- include('partials/eventHeader') %>
+
+    <body>
+        <div>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <img src="Images/logo.png" alt="" class="mx-3  my-2">
+                        <a class="navbar-brand" href="index" style="color:orange;">Jouryner</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <form action="/placeupdate" method="post">
+                <div class="container my-5">
+                    <h2>Edit Event Information</h2>
+                    <hr>
+                    <div class="mb-3 mt-5">
+                        <label for="placeName" class="form-label">Place Name :</label>
+                        <input type="text" class="form-control" id="placeName" name="placeName" value="<%= placeDetail.placeName %>"
+                            readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label for="placesName" class="form-label">Places Name :</label>
+                        <input type="text" class="form-control" id="placesName" name="placesName"
+                        value="<%= placeDetail.placesName %>" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="duration" class="form-label">Duration :</label>
+                        <input type="text" class="form-control" id="duration" name="duration"
+                        value="<%= placeDetail.duration %>" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price :</label>
+                        <input type="text" class="form-control" id="price" name="price" value="<%= placeDetail.price %>" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="greeting" class="form-label">Greeting :</label>
+                        <input type="text" class="form-control" id="greeting" name="greeting" value="<%= placeDetail.greeting %>"
+                        required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age :</label>
+                        <input type="text" class="form-control" id="age" name="age" value="<%= placeDetail.age %>" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="hotelName" class="form-label">Hotel Name :</label>
+                        <input type="text" class="form-control" id="hotelName" name="hotelName" value="<%= placeDetail.hotelName %>" required />
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="image2" class="form-label">Main Image :</label>
+                        <input class="form-control" type="file" id="image2" name="image2" value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image3" class="form-label">Carousel Image1 :</label>
+                        <input class="form-control" type="file" id="image3" name="image3"  value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image4" class="form-label">Carousel Image2 :</label>
+                        <input class="form-control" type="file" id="image4" name="image4"  value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image5" class="form-label">Carousel Image3 :</label>
+                        <input class="form-control" type="file" id="image5" name="image5"  value="" required />
+                    </div> -->
+                    <div class="mb-3">
+                        <label for="placeContent" class="form-label">Place Content :</label>
+                        <textarea class="form-control" id="placeContent" rows="3" name="placeContent" 
+                            required><%= placeDetail.placeContent %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>

@@ -1,0 +1,261 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <img src="../images/logo.png" alt="" class="mx-3 my-2">
+        <a class="navbar-brand" href="/" style="color:orange;">Jouryner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navCenter mx-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-lg-5 ">
+                    <li class="nav-item" id="navcolor">
+                        <a class="nav-link" aria-current="page" href="../index">Home</a>
+                    </li>
+
+                    <% if(isAdmin) { %>   
+                        <li class="nav-item" id="navcolor">
+                            <a class="nav-link" aria-current="page" href="../admin">Admin</a>
+                        </li>     
+                    <% }  %>
+                    <!-- <li class="nav-item" id="navcolor">
+                        <a class="nav-link" aria-current="page" href="../admin">Admin</a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <div class="row eventDrop mx-5 navDropName">
+                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                    <li>
+                                        <h4><b>Summer Events</b></h4>
+                                    </li>
+                                    
+                                    <%  summerData.forEach(function(item){ %>   
+                                        <li><a class="dropdown-item"
+                                            href="../place/<%= item.placeName %>"><%= item.placeName %></a></li>
+                                    <% }) %>  
+                                    
+                                    
+                                    <!-- <li><a class="dropdown-item"
+                                            href="../place/pHimachalPradesh.html">Himachal
+                                            Pradesh</a></li>
+                                    <li><a class="dropdown-item" href="../place/pkashmir.html">Kashmir</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/Manli.html">Manali </a></li>
+                                    <li><a class="dropdown-item" href="../place/kasol.html">Kasol </a></li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/Dalhousie.html">Dalhousie</a></li>
+                                    <li><a class="dropdown-item" href="../place/Shimla.html">Shimla </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/Mumbai.html">Mumbai</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/Darjeeling.html">Darjeeling</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/Rishikesh.html">Rishikesh</a></li>
+                                    <li><a class="dropdown-item" href="../place/Goa.html">Goa</a></li>
+                                    <li><a class="dropdown-item" href="../place/Andaman.html">Andaman
+                                            Islands</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/Diu-Daman.html">Diu-daman</a></li>
+                                    <li><a class="dropdown-item" href="../place/psomanath.html">Somnath</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/pbeytdwarka.html">Beyt
+                                            dwarka</a>
+                                    </li> -->
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                    <li>
+                                        <h4><b>Winter Events</b></h4>
+                                    </li>
+                                     <%  winterData.forEach(function(item){ %>   
+                                        <li><a class="dropdown-item"
+                                            href="../place/<%= item.placeName %>"><%= item.placeName %></a></li>
+                                   <% }) %> 
+                                    <!-- <li><a class="dropdown-item"
+                                            href="../place/rajasthan.html">Rajasthan</a></li>
+                                    <li><a class="dropdown-item" href="../place/Jaipur.html">Jaipur</a></li>
+                                    <li><a class="dropdown-item" href="../place/udaipur.html">Udaipur</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/Jaiselmer.html">Jaisalmer</a></li>
+                                    <li><a class="dropdown-item" href="../place/MountAbu.html">Mount Abu</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/kerala.html">kerala</a></li>
+                                    <li><a class="dropdown-item" href="../place/pbeytdwarka.html">Beyt
+                                            dwarka</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/pHimachalPradesh.html">Himachal
+                                            Pradesh</a></li>
+                                    <li><a class="dropdown-item" href="../place/Kutch.html">Rann Of
+                                            Kutch</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/lakshadweep.html">Lakshadweep</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/delhi.html">Delhi</a></li>
+                                    <li><a class="dropdown-item" href="../place/Mumbai.html">Mumbai</a></li> -->
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                    <li>
+                                        <h4><b>Monsoon Events</b></h4>
+                                    </li>
+                                    <%  monsoonData.forEach(function(item){ %>   
+                                        <li><a class="dropdown-item" href="../place/<%= item.placeName %>"><%= item.placeName %></a></li>
+                                    <% }) %>  
+                                    <!-- <li><a class="dropdown-item" href="../place/mshillong.html">Shillong,
+                                            Meghalaya</a></li>
+                                    <li><a class="dropdown-item" href="../place/mvallyofflower.html">Valley
+                                            of
+                                            Flowers, Uttarakhand</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/mpoloforest.html">polo
+                                            forest</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/msaputara.html">saputara</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/mdang.html">Dang</a></li>
+                                    <li><a class="dropdown-item" href="../place/delhi.html">Delhi</a></li>
+                                    <li><a class="dropdown-item" href="../place/ladakh.html">Ladakh</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="../place/lakshadweep.html">Lakshadweep</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../place/ooty.html">Ooty</a></li> -->
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3 p-4 ">
+                                    <div id="demo" class="carousel slide carousel-fade"
+                                        data-bs-ride="carousel">
+                                        <!-- Indicators/dots -->
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="0" class="active"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="1"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="2"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="3"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="4"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="5"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="6"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="7"></button>
+                                            <button type="button" data-bs-target="#demo"
+                                                data-bs-slide-to="8"></button>
+                                        </div>
+
+                                        <!-- The slideshow/carousel -->
+                                        <div class="dropCarousel">
+                                            <div class="carousel-item active">
+                                                <a href="../place/Andaman.html"><img
+                                                        src="../Images/navDropImg/Andaman Islands-2.jpg"
+                                                        alt="Los Angeles" class="d-block w-100"></a>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <a href="../place/pbeytdwarka.html"><img
+                                                        src="../Images/navDropImg/beyt dwarka-1.jpg"
+                                                        alt="Los Angeles" class="d-block w-100 "></a>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <a href="../place/Rishikesh.html"><img
+                                                        src="../Images/navDropImg/rishikesh-2.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/"><img
+                                                        src="../Images/navDropImg/Ladakh-5.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/pHimachalPradesh.html"><img
+                                                        src="../Images/navDropImg/himachal-2.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/Darjeeling.html"><img
+                                                        src="../Images/navDropImg/Darjeeling-1.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/Goa.html"><img
+                                                        src="../Images/navDropImg/Goa.jpg" alt="New York"
+                                                        class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/rajasthan.html"><img
+                                                        src="../Images/navDropImg/Rajasthan-1.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <a href="../place/pkashmir.html"><img
+                                                        src="../Images/navDropImg/Kashmir-2.jpg"
+                                                        alt="New York" class="d-block w-100 "></a>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Left and right controls/icons -->
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#demo" data-bs-slide="prev">
+
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#demo" data-bs-slide="next">
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about">About</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../contact">
+                            Contact</a>
+                    </li>
+                    
+                    <% if(!isAuthenticated) { %>   
+                        <li class="nav-item" id="navcolor"><a href="../login" class="navacol nav-link"
+                            aria-current="page"><i class="fa-solid fa-user logcol"></i>Login</a>
+                        </li>      
+                    <% } else { %>
+                        <li class="nav-item" id="navcolor"><a href="../logout" class="navacol nav-link"
+                            aria-current="page"><i class="fa-solid fa-user logcol"></i>Logout (<%= isuser.name %>)</a>
+                        </li> 
+                    <% } %>  
+                    
+                    
+                    
+                </ul>
+            </div>
+
+            <div>
+                <form class="d-flex" role="search">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <a href="../../event">
+                            <i class="fa-solid fa-magnifying-glass logcol"></i>Search
+                        </a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>

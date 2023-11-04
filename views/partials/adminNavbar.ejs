@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <img src="../images/logo.png" alt="" class="mx-3 my-2">
+        <a class="navbar-brand" href="../index" style="color:orange;">Jouryner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navCenter mx-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-lg-5 ">
+                    <li class="nav-item" id="navcolor">
+                        <a class="nav-link" style="color: white;" aria-current="page" href="index">Home</a>
+                    </li>
+                    <li class="nav-item" id="navcolor">
+                        <a class="nav-link" style="color: white;" aria-current="page" href="admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white;" href="about">About</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color: white;" href="contact">
+                            Contact</a>
+                    </li>
+                    <% if(!isAuthenticated) { %>   
+                        <li class="nav-item" id="navcolor"><a href="../login" style="color: white;" class="navacol nav-link"
+                            aria-current="page"><i class="fa-solid fa-user logcol"></i>Login</a>
+                        </li>      
+                    <% } else { %>
+                        <li class="nav-item" id="navcolor"><a href="../logout" style="color: white;" class="navacol nav-link"
+                            aria-current="page"><i class="fa-solid fa-user logcol"></i>Logout</a>
+                        </li> 
+                    <% } %>   
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

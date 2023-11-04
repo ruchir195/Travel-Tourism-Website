@@ -1,0 +1,255 @@
+.bgimg{
+    width: 100%;
+    height: 600px;
+}
+
+.container-lg {
+    margin: 0;
+    padding: 0;
+    /* height: 100vh; */
+}
+
+.d-block {
+    height: 85vh;
+    width: 100%;
+    margin: 0;
+}
+
+.img_width {
+    width: 98.9vw;
+    /* opacity: 0.9; */
+    margin: 0px;
+}
+
+.contentright{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid red; */
+}
+
+
+.placeImgCont{
+    display: flex;
+    flex-direction: row;
+    z-index: -5;
+}
+
+.placeCarouse{
+    width: 18rem;
+    z-index: -1;
+    /* height: 500px; */
+    height: auto;
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.15);
+}
+
+.card{
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.15);
+}
+
+
+
+@media only screen and (max-width: 750px) {
+    .placeImgCont{
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+
+    }
+
+    .placeCarouse{
+        /* justify-content: center;
+        align-items: center; */
+        /* width: 30rem; */
+        width: 100%;
+        height: auto;
+        padding: 0px 0px;
+        z-index: -1;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .card{
+        margin-top: 0px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+
+/* #placeTopImg{
+    background: url(./somnath-temple-banner.jpg);
+    display: block;
+    width: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 36.5%; */
+    /* height: 100vh; */
+
+/* }  */
+
+
+.booking {
+    /* border: 1px solid red; */
+    /* width: 80%; */
+    /* margin: 0 auto; */
+    display: flex;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;;
+    /* flex-wrap: wrap; */
+}
+
+.hotel_left {
+    /* width: 75%; */
+    /* border: 1px solid slateblue; */
+    width: 55%;
+}
+
+.hotel_icon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: center; */
+    margin-right: 2px;
+    border-bottom: 2px solid gray;
+}
+
+.hotel_icon i {
+    margin-top: 31px;
+    font-size: 30px;
+    color: #de5824;
+}
+
+.icon_first,
+.icon_second,
+.icon_third {
+    display: flex;
+    margin-top: 1px;
+    margin-right: 25px;
+    font-size: 15px;
+}
+
+.detail {
+    margin-left: 10px;
+}
+
+.hotel_left h3 {
+    color: #de5824;
+}
+
+.hotel_right {
+    width: 35%;
+    padding: 15px;
+    border: 1px solid seagreen;
+}
+
+.right_heading {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.heading_icon {
+    margin-top: 8px;
+    font-size: 30px;
+    color:#de5824;
+}
+
+.price{
+    font-size: 30px;
+}
+
+
+.ser_icon {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.s1,
+.s2,
+.s3,
+.s4,
+.s5,
+.s6 {
+    /* border: 3px solid  orange; */
+    border: 3px solid #de5824;
+    
+    /* font-weight: bold; */
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 30px;
+    margin: 5px;
+}
+.btn_book{
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid orange; */
+    /* width: 25%; */
+    /* border-radius: 25%; */
+}
+
+.btn_book{
+    background-color: black;
+    border: black;
+    font-weight: bold;
+    transition: 0.7s;
+    width: 100px;
+}
+
+.btn_book:hover{
+    background-color: #de5824;
+    border: #de5824;
+    transition: 0.7s;
+}
+@media screen and (max-width: 750px) {
+
+    .hotel_left {
+        width: 100%;
+    }
+
+    .booking {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hotel_right {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width:1050px) and (max-width:1620px) {
+    /* .booking {
+        width: 85%;
+    } */
+
+    .hotel_right {
+        width: 41%;
+    }
+    .s1,
+    .s2,
+    .s3,
+    .s4,
+    .s5,
+    .s6 {
+        width: 45%;
+    }
+    
+}
+
+@media screen and (min-width:1000px) and (max-width:1050px) {
+    .hotel_right {
+        width: 45%;
+    }
+
+    /* .booking {
+        width: 90%;
+    }
+     */
+}
+

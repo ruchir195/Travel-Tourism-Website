@@ -1,0 +1,128 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.card-body{
+    padding: 0px;
+}
+
+.contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #222;
+    /* background-color: red; */
+}
+
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact .content h2{
+    font-size: 3em;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.contact .content p{
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.contactInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff1;
+    min-height: 500px;
+}
+
+ .contactInfo .box{
+    display: flex;
+    position: relative;
+    padding: 2% 0px;
+    cursor: pointer;
+}
+
+
+ .contactInfo .box .icon{
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75em;
+    transition: 0.5s;
+}
+
+ .contactInfo .box:hover .icon{
+    background: skyblue;
+    color: #fff;
+}
+
+ .contactInfo .box .text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+ .contactInfo .box .text h3{
+    color: skyblue;
+    font-weight: 500;
+}
+
+
+ .contactInfo .txt{
+    color: #fff;
+    margin-top: 50px;
+    font-weight: 500px;
+    padding-left: 10px;
+    border-left: 50px solid darksalmon;
+    line-height: 1em;
+}
+
+.sci{
+    /* position: relative; */
+    display:  flex;
+    /* gap: 3%; */
+    /* margin: 20px 0px; */
+}
+
+.sci li{
+    list-style: none;
+    padding: 1%;
+}
+
+.sci li a{
+    color: #fff;
+    font-size: 2em;
+    transition: 0.5s;
+}
+
+.sci li a:hover{
+    color: skyblue;
+    
+}

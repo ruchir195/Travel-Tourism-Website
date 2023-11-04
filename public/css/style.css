@@ -1,0 +1,578 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* .orange{
+    background-color: orange;
+} */
+
+/* navbar css */
+.navbar-brand {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container-fluid img {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.nav-item a {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #ffa500;
+}
+
+.nav-item a:hover {
+    color: #888787;
+    transition: 0.7s;
+}
+
+
+.navCenter {
+    /* border: 2px solid red; */
+    justify-content: center;
+    align-items: center;
+}
+
+.navDropName li a {
+    color: black;
+    font-weight: 2;
+}
+
+.navDropName a:hover {
+    color: orange;
+    transition: 0.7s;
+    background-color: white;
+}
+
+.navDropName a img {
+    height: 420px;
+}
+
+.dropdown-menu {
+    width: 90% !important;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 5%;
+    /* display: none; */
+}
+
+
+.dropdown {
+    position: static !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.btn-outline-primary {
+    border: 1px solid orange;
+}
+
+.btn-outline-primary a {
+    color: orange;
+    font-weight: bold;
+}
+
+.btn-outline-primary a:hover {
+    color: white;
+}
+
+.btn-outline-primary:hover {
+    background-color: orange;
+    transition: 1s;
+    color: #fff;
+    border: 1px solid orange;
+}
+
+.logcol {
+    /* color: white; */
+    /* justify-content: end; */
+    padding-right: 10px;
+    /* padding-top: 12px; */
+}
+
+.navlog {
+    justify-content: center;
+
+}
+
+.error-message {
+    color: red;
+}
+
+
+.navacol {
+    /* color: white; */
+    font-size: 18px;
+}
+
+@media only screen and (max-width:800px) {
+    .mx-auto {
+        flex-direction: column;
+    }
+
+    /* .carousel-img{
+        width: 100%;
+        height: 300px;
+        border: 2px solid red;
+    } */
+
+    .name h5 {
+        display: none;
+    }
+
+}
+
+/* Show only the horizontal image on laptops and computers */
+@media screen and (min-width: 768px) {
+    #verticalImage {
+        display: none;
+    }
+}
+
+/* Show only the vertical image on phones */
+@media screen and (max-width: 767px) {
+    #horizontalImage {
+        display: none;
+    }
+}
+
+
+
+
+/* carousel css */
+
+.carousel-img {
+    width: 100%;
+    height: 640px;
+}
+
+.name h5 {
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 2s steps(12) infinite alternate,
+        blink 800ms steps(12) infinite normal;
+    border-right: 2px solid black;
+    color: white;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 30%;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: black;
+    }
+
+    to {
+        border-color: transparent;
+    }
+}
+
+.carousel-inner video {
+    height: 640px;
+}
+
+.first {
+    position: absolute;
+    left: 200px;
+    top: 300px;
+}
+
+.img {
+    width: 240px;
+    height: 350px;
+}
+
+.container_white {
+    background-color: white;
+}
+
+.container {
+    max-width: 1140px;
+}
+
+
+.padd-top-bottom {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+.mar-right-left {
+    margin: -1.5rem;
+}
+
+.padd-right-left {
+    padding: 1.5rem;
+}
+
+.containerpebi9 {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.event {
+    display: inline-block;
+    width: 200px;
+    border-radius: .6rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    overflow: hidden;
+}
+
+.mr-5 {
+    margin-right: 1.5rem;
+}
+
+/* .img-fluid{
+    max-width: 100%;
+    height: auto;
+} */
+
+
+
+
+/* Event Box css */
+#seasonEvents {
+    width: 250px;
+    height: 350px;
+}
+
+/* state Box css */
+#state {
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    /* box-shadow: 0 0.5rem 0.5rem rgba(225, 7, 7, 0.15); */
+    /* margin: 40px 50px; */
+}
+
+
+.eventState {
+
+    display: inline-block;
+    width: 200px;
+    padding: 10px 10px;
+}
+
+.eventState :hover {
+    /* padding: 0px 0px; */
+    /* width: 220px; */
+    /* height: 250px; */
+    /* margin: 0px; */
+    box-shadow: 0 0 0.8rem rgb(141, 141, 141);
+}
+
+#stateName {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 15px;
+    font-size: 18px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#stateName a {
+    text-decoration: none;
+    box-shadow: none;
+    color: black;
+}
+
+#stateName a:hover {
+    color: orange;
+}
+
+#stateName:hover {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    box-shadow: none;
+}
+
+
+
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+
+
+
+
+/* Comment css */
+.containercomment {
+    display: flex;
+
+}
+
+.containercomment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    flex: 0 0 50px;
+    object-fit: cover;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
+
+.commenttext {
+    font-size: 0.875rem;
+    color: #717171;
+    border-top: 2px solid #e3e3e3;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    margin-bottom: 0px;
+    display: inline-block;
+    /* white-space:normal; */
+    overflow: hidden;
+    /* height: 500px; */
+
+}
+
+.commentCarousle {
+    height: 350px;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+.star-rating {
+    font-size: 18px;
+}
+
+.star-rating input {
+    outline: none;
+    border: 0;
+    width: 40px;
+    text-emphasis: 0;
+
+}
+
+.star {
+    cursor: pointer;
+
+}
+
+
+
+/* Styling for selected stars */
+.star.active {
+    color: orange;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+
+
+
+/* footer css */
+.footbgcol {
+    background-color: black;
+    color: #fff;
+    font-size: .875rem;
+    padding-top: 1rem;
+}
+
+.opa6 {
+    opacity: 0.6;
+}
+
+
+.footlinkcol {
+    color: orange;
+}
+
+.footlist-unstyle {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footlist-unstyle a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.footfontweight {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.footicon {
+    color: black;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    padding: 9px 11px;
+}
+
+hr {
+    padding: 0px;
+    margin: 0px;
+}
+
+.copy_c {
+    font-weight: bold;
+}
+
+.copy_c a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+/* comment Button css */
+#popUp {
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-left: 45%;
+    margin-bottom: 2%;
+    border-radius: 7px;
+    border: none;
+    border: 1px solid RGB(13, 110, 253);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.15);
+    /* background-color: lightslategray; */
+    background-color: RGB(13, 110, 253);
+    transition: .7s;
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+#popUp a {
+    /* color: black; */
+    color: white;
+}
+
+#popUp a:hover {
+    color: white;
+}
+
+
+#popUp:hover {
+    background-color: black;
+    transition: 1s;
+    color: #fff;
+    border: 1px solid black;
+}
+
+
+
+
+/* carousel event button css */
+.eventBtn {
+    font-size: 20px;
+    /* padding-left: 20px; */
+    text-align: left;
+    margin-bottom: 17%;
+}
+
+.eventBtn button {
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+    text-align: center;
+    border: 1px solid RGB(13, 110, 253);
+    opacity: 0.9;
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.15);
+    background-color: RGB(13, 110, 253);
+    transition: .7s;
+}
+
+.eventBtn button a {
+    color: white;
+    font-weight: bold;
+}
+
+.eventBtn button {
+    background-color: orange;
+    transition: 1s;
+    border: 1px solid orange;
+}
+
+.eventBtn button:hover {
+    background-color: black;
+    transition: 1s;
+    color: white;
+    border: 1px solid black;
+}
+
+.eventBtn a:hover {
+    color: white;
+}
+
+
+
+
+/* readmore readless css */
+.more {
+    display: none;
+}
+
+.myBtn {
+    background-color: white;
+    color: orange;
+    border: 2px solid white;
+    padding: 0px 8px;
+    border-radius: 10px;
+}
+
+.myBtn:hover {
+    color: black;
+    transition: 0.5s;
+    /* box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.15); */
+}
+
+#eventImgPadding {
+    padding: 0px;
+    margin: 0px;
+}

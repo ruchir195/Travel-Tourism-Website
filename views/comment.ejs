@@ -1,0 +1,83 @@
+<%- include('partials/header') %>
+
+    <body>
+
+        <div>
+            <%- include('partials/navbar') %>
+        </div>
+
+        <div id="message"></div>
+
+        <div class="container my-3 mt-5">
+            <h1>Welcome To Comment Section</h1>
+            <hr>
+            <div class=" my-4">
+                <div class="card-body">
+                    <!-- <div class="form-group"> -->
+                    <form action="/comment" method="post" enctype="multipart/form-data">
+                        <div class="my-3 mt-5">
+                            <h5>Add Profile Image</h5>
+                            <input class="form-control" type="file" id="image2" name="profileimg" value="" />
+                        </div>
+                        
+                        <div class="my-4">
+                            <h5 class="card-title">Add Name</h5>
+                            <input type="text" class="form-control mt-2" id="addTitle" name="title" aria-describedby="title"
+                                placeholder="Enter Name">
+                            <small id="title" class="form-text text-muted invalid-feedback">
+                                Your username must be 2-10 characters long and should not start with a number
+                            </small>
+                        </div>
+
+                        <!-- </div> -->
+
+                        <h5 class="card-title">Add Rating</h5>
+
+                          <!-- <div class="star-rating">
+                            <input type="text" class="star" data-rating="1" name="rate1" value="&#9733;" />
+                            <input type="text" class="star" data-rating="2" name="rate1" value="&#9733;" />
+                            <input type="text" class="star" data-rating="3" name="rate3" value="&#9733;" />
+                            <input type="text" class="star" data-rating="4" name="rate4" value="&#9733;" />
+                            <input type="text" class="star" data-rating="5" name="rate5" value="&#9733;" />
+                          </div>
+                          <input type="text" id="result" name="rating" value=""/> -->
+                        <div class="star-rating my-4 mt-2">
+                        <label>
+                            <input type="radio" class="star" name="rating" value="⭐" /> ⭐
+                        </label>
+                        <label>
+                            <input type="radio" class="star" name="rating" value="⭐⭐" /> ⭐⭐
+                        </label>
+                        <label>
+                            <input type="radio" class="star" name="rating" value="⭐⭐⭐" /> ⭐⭐⭐
+                        </label>
+                        <label>
+                            <input type="radio" class="star" name="rating" value="⭐⭐⭐⭐" /> ⭐⭐⭐⭐
+                        </label>
+                        <label>
+                            <input type="radio" class="star" name="rating" value="⭐⭐⭐⭐⭐" /> ⭐⭐⭐⭐⭐
+                        </label>
+                        </div>
+                          
+
+                        <div class="my-4 mt-2">
+                            <h5 class="card-title my-2">Add a Comment</h5>
+                            <div class="form-group">
+                                <textarea class="form-control" id="addTxt" name="comment" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary my-2" id="addBtn">Add Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include('partials/footer') %>
+
+            <script src="../js/comment.js"></script>
+
+    </body>
+
+    </html>

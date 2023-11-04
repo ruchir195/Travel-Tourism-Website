@@ -1,0 +1,102 @@
+<%- include('partials/eventHeader') %>
+
+    <body>
+        <div>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <img src="Images/logo.png" alt="" class="mx-3  my-2">
+                        <a class="navbar-brand" href="index" style="color:orange;">Jouryner</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="container mt-3">
+                <!-- <h1 class="mt-5">Place Page Information</h1> -->
+                <!-- <hr /> -->
+                <form action="/place" method="POST" enctype="multipart/form-data">
+                    <!-- <div class="container my-5">
+                        <div class="mb-3">
+                            <label for="placeName" class="form-label">Place Name :</label>
+                            <input type="text" class="form-control" id="placeName" name="placeName" value="<%= placeName %>"
+                                readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="placesName" class="form-label">Places Name :</label>
+                            <input type="text" class="form-control" id="placesName" name="placesName"
+                                value="<%= placesName %>" readonly/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="duration" class="form-label">Duration :</label>
+                            <input type="text" class="form-control" id="duration" name="duration"
+                                value="<%= duration %>" readonly/>
+                        </div>
+                    </div> -->
+
+                    <h1 class="my-4">Place Page Image</h1>
+                    <hr />
+
+
+                    <!-- <div class="mb-3">
+                        <label for="price" class="form-label">Price :</label>
+                        <input type="text" class="form-control" id="price" name="price" value="<%= price %>" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="greeting" class="form-label">Greeting :</label>
+                        <input type="text" class="form-control" id="greeting" name="greeting" value="<%= greeting %>" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age :</label>
+                        <input type="text" class="form-control" id="age" name="age" value="<%= age %>" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hotelName" class="form-label">Hotel Name :</label>
+                        <input type="text" class="form-control" id="hotelName" name="hotelName" value="<%= hotelName %>" readonly/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="placeContent" class="form-label">Place Content :</label>
+                        <textarea class="form-control" id="placeContent" rows="3" name="placeContent"><%= placeContent %></textarea>
+                    </div> -->
+                    <input type="hidden" class="form-control" id="placeName" name="placeName" value="<%= placeName %>"readonly />
+                    <input type="hidden" class="form-control" id="placesName" name="placesName" value="<%= placesName %>" readonly/>  
+                    <input type="hidden" class="form-control" id="duration" name="duration" value="<%= duration %>" readonly/>  
+                    <input type="hidden" class="form-control" id="price" name="price" value="<%= price %>" readonly/>   
+                    <input type="hidden" class="form-control" id="greeting" name="greeting" value="<%= greeting %>" readonly/> 
+                    <input type="hidden" class="form-control" id="age" name="age" value="<%= age %>" readonly/>    
+                    <input type="hidden" class="form-control" id="hotelName" name="hotelName" value="<%= hotelName %>" readonly/>
+                    <input type="hidden" class="form-control" id="area" name="area" value="<%= area %>" readonly/>
+                    <input type="hidden" class="form-control" id="hotelRating" name="hotelRating" value="<%= hotelRating %>" readonly/>
+                    <input type="hidden" class="form-control" id="placeContent"  name="placeContent" value="<%= placeContent %>" readonly/>
+                    <div class="mb-3">
+                        <label for="image2" class="form-label">Main Image :</label>
+                        <input class="form-control" type="file" id="image2" name="image2" value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image3" class="form-label">Carousel Image1 :</label>
+                        <input class="form-control" type="file" id="image3" name="image3" value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image4" class="form-label">Carousel Image2 :</label>
+                        <input class="form-control" type="file" id="image4" name="image4" value="" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="image5" class="form-label">Carousel Image3 :</label>
+                        <input class="form-control" type="file" id="image5" name="image5" value="" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div> 
+        </div>
+    </body>

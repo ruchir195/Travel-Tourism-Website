@@ -1,0 +1,105 @@
+<%- include('partials/eventHeader') %>
+
+    <body>
+        <div>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <img src="Images/logo.png" alt="" class="mx-3  my-2">
+                        <a class="navbar-brand" href="index" style="color:orange;">Jouryner</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+                <div class="container mt-3">
+                    <form action="/adminplace" method="post" enctype="multipart/form-data">
+                        <h2>Event Page Information</h2>
+                        <hr>
+                        <div class="container my-4">
+                            <div class="mb-3">
+                                <label for="placeName" class="form-label">Place Name :</label>
+                                <input type="text" class="form-control" id="placeName" name="placeName"
+                                    placeholder="e.g.Goa" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="placesName" class="form-label">Places Name :</label>
+                                <input type="text" class="form-control" id="placesName" name="placesName"
+                                    placeholder="e.g. panaji + North Goa + South Goa" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="duration" class="form-label">Duration :</label>
+                                <input type="text" class="form-control" id="duration" name="duration"
+                                    placeholder="e.g. 10 days / 9 nights" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Event Page Image :</label>
+                                <input class="form-control" type="file" id="image" name="image" value="" required />
+                            </div>
+                        </div>
+
+                        <h2 class="mt-5">Place Page Information</h2>
+                        <hr />
+
+                        <div class="container my-4">
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price :</label>
+                                <input type="text" class="form-control" id="price" name="price" placeholder="e.g.10,000" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="greeting" class="form-label">Greeting :</label>
+                                <input type="text" class="form-control" id="greeting" name="greeting" placeholder="e.g. Welcome to Goa" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="age" class="form-label">Age :</label>
+                                <input type="text" class="form-control" id="age" name="age" placeholder="e.g. 10-70 years" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="hotelName" class="form-label">Hotel Name :</label>
+                                <input type="text" class="form-control" id="hotelName" name="hotelName" placeholder="e.g. Grand Hyatt Goa" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="hotelRating" class="form-label">Hotel Rating :</label>
+                                <div class="star-rating my-4 mt-2">
+                                    <label>
+                                        <input type="radio" class="star" name="hotelRating" value="⭐" /> ⭐
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="star" name="hotelRating" value="⭐⭐" /> ⭐⭐
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="star" name="hotelRating" value="⭐⭐⭐" /> ⭐⭐⭐
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="star" name="hotelRating" value="⭐⭐⭐⭐" /> ⭐⭐⭐⭐
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="star" name="hotelRating" value="⭐⭐⭐⭐⭐" /> ⭐⭐⭐⭐⭐
+                                    </label>
+                                </div>
+                            </div>
+                           
+                            <div class="mb-3">
+                                <label for="area" class="form-label">Hotel address :</label>
+                                <input type="text" class="form-control" id="area" name="area" placeholder="e.g. DR. E. Borges Road, Taleigao Plateau, Goa 403206" required />
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="placeContent" class="form-label">Place Content :</label>
+                                <textarea class="form-control" id="placeContent" rows="3" name="placeContent"
+                                    required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" class="btn btn-primary px-3" name="booking" value="Next"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </body>

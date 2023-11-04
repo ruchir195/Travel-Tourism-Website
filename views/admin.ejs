@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/placecss.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include('partials/adminNavbar') %>
+
+        <div class="container my-2">
+            <h1 class="text-center mt-5" style="color: rgb(90, 172, 222);"> Admin Desk </h1>
+            <br>
+
+            <div class="mx-3" >
+                <div class="row" style="justify-content: center;">
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin1">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/customer.gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h3>
+                                <%= userdata.length %>
+                            </h3>
+                            <p style="font-size: 30px; "> <b> USERS </b></p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+    
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin2">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/list (1).gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h3>
+                                <%= placeData.length %>
+                            </h3>
+                            <p style="font-size: 30px;"> <b> TOTAL EVENT </b></p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+    
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/appointment.gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h4> Add new Event details here </h4>
+                            <p style="font-size: 30px;"> <b> ADD EVENT</b></p>
+                            <a href="adminevent" class="stretched-link"></a>
+                        </div>
+                    </div>
+    
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin4">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/edit.gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h3>
+                             
+                            </h3>
+                            <p style="font-size: 30px;"> <b> UPDATE EVENT </b></p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+    
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin5">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/add-image.gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h3>
+                               
+                            </h3>
+                            <p style="font-size: 30px;"> <b> ADD FRONT PAGE EVENT </b></p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+
+                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin6">
+                        <img class="card-img-top"
+                            src="../Images/Admin Image/three-friends.gif"
+                            alt="">
+                        <div class="card-body text-center">
+                            <br>
+                            <h3>
+                                <%= commentData.length %>
+                            </h3>
+                            <p style="font-size: 30px;"> <b> Show Comment </b></p>
+                            <a href="#" class="stretched-link"></a>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+           
+        </div>
+
+        <div class="modal fade" id="admin1">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title"> User Information </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover">
+                            <thead style="background-color: cadetblue;">
+                                <tr>
+                                    <th> User Id</th>
+                                    <th> Customer Name </th>
+                                    <th> Email Id </th>
+                                    <th> Mobile No. </th>
+                                    <th> Package Name</th>
+                                    <th> City</th>
+                                    <th> Adhar Number: </th>
+                                    <th> Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% count=1 %>
+                                    <% userdata.forEach(function(item){ %>
+                                        <tr>
+                                            <th>
+                                                <%= count++ %>
+                                            </th>
+                                            <td>
+                                                <%= item.firstName %>
+                                                    <%= item.lastName %>
+                                            </td>
+                                            <td>
+                                                <%= item.email %>
+                                            </td>
+                                            <td>
+                                                <%= item.phone %>
+                                            </td>
+                                            <td>
+                                                <%= item.pName %>
+                                            </td>
+                                            <td>
+                                                <%= item.city %>
+                                            </td>
+                                            <td>
+                                                <%= item.adharNumber %>
+                                            </td>
+                                            <td>
+                                                <%= item.price %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="admin2">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title"> Total Events </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover text-center">
+                            <thead style="background-color: cadetblue;">
+                                <tr>
+                                    <th> Order Id</th>
+                                    <th> Place Name</th>
+                                    <th> Places Name </th>
+                                    <th> Hotel Name </th>
+                                    <th> Hotel Address </th>
+                                    <th> Hotel Rating </th>
+                                    <th> Duration </th>
+                                    <th> Greeting </th>
+                                    <th> Age </th>
+                                    <th> Price </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% count=1 %>
+                                    <% placeData.forEach(function(item){ %>
+                                        <tr>
+                                            <th>
+                                                <%= count++ %>
+                                            </th>
+                                            <td>
+                                                <%= item.placeName %>
+                                            </td>
+                                            <td>
+                                                <%= item.placesName %>
+                                            </td>
+                                            <td>
+                                                <%= item.hotelName %>
+                                            </td>
+                                            <td>
+                                                <%= item.area %>
+                                            </td>
+                                            <td>
+                                                <%= item.hotelRating %>
+                                            </td>
+                                            <td>
+                                                <%= item.duration %>
+                                            </td>
+                                            <td>
+                                                <%= item.greeting %>
+                                            </td>
+                                            <td>
+                                                <%= item.age %>
+                                            </td>
+                                            <td>
+                                                <%= item.price %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="modal fade" id="admin3">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title"> Add Event Details </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container mt-3">
+                            <form action="/place" method="POST" enctype="multipart/form-data">
+                                <h1>Event Page Information</h1>
+                                <hr />
+
+                                <div class="container my-5">
+                                    <div class="mb-3">
+                                        <label for="placeName" class="form-label">Place Name :</label>
+                                        <input type="text" class="form-control" id="placeName" name="placeName"
+                                            placeholder="Goa" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="placesName" class="form-label">Places Name :</label>
+                                        <input type="text" class="form-control" id="placesName" name="placesName"
+                                            placeholder="panaji + North Goa + South Goa" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="duration" class="form-label">Duration :</label>
+                                        <input type="text" class="form-control" id="duration" name="duration"
+                                            placeholder="10 days / 9 nights" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Event Page Image :</label>
+                                        <input class="form-control" type="file" id="image" name="image" value="" required />
+                                    </div>
+                                </div>
+
+                                <h1>Place Page Information</h1>
+                                <hr />
+
+                               
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Price :</label>
+                                    <input type="text" class="form-control" id="price" name="price" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="greeting" class="form-label">Greeting :</label>
+                                    <input type="text" class="form-control" id="greeting" name="greeting"
+                                        required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="age" class="form-label">Age :</label>
+                                    <input type="text" class="form-control" id="age" name="age" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="hotelName" class="form-label">Hotel Name :</label>
+                                    <input type="text" class="form-control" id="hotelName" name="hotelName"
+                                        required />
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="image2" class="form-label">Main Image :</label>
+                                    <input class="form-control" type="file" id="image2" name="image2" value=""
+                                        required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image3" class="form-label">Carousel Image1 :</label>
+                                    <input class="form-control" type="file" id="image3" name="image3" value=""
+                                        required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image4" class="form-label">Carousel Image2 :</label>
+                                    <input class="form-control" type="file" id="image4" name="image4" value=""
+                                        required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image5" class="form-label">Carousel Image3 :</label>
+                                    <input class="form-control" type="file" id="image5" name="image5" value=""
+                                        required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="placeContent" class="form-label">Place Content :</label>
+                                    <textarea class="form-control" id="placeContent" rows="3" name="placeContent"
+                                        required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        </div>
+
+
+        <div class="modal fade" id="admin4">
+            <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title">Update Event Information</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container mt-3">
+                            <form action="/eventUpdate" method="post">
+                                <div class="mb-3">
+                                    <label for="placeName" class="form-label">Place Name :</label>
+                                    <select name="placeName" id="placeName">
+                                        <% placeData.forEach(function(item){ %>
+                                            <option value="<%= item.placeName %>">
+                                                <%= item.placeName %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="admin5">
+            <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title">Front Page Event</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="/adminFrontEvent" method="POST" enctype="multipart/form-data">
+                            <div class="container my-5">
+                                <div class="mb-3">
+                                    <label for="placeName" class="form-label">Place Name :</label>
+                                    <select name="placeName" id="placeName">
+                                        <% placeData.forEach(function(item){ %>
+                                            <option value="<%= item.placeName %>"><%= item.placeName %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="frontEvent" class="form-label">Type of Events:</label>
+                                    <select name="frontEvent" id="frontEvent">
+                                        <option value="Popular">Popular</option>
+                                        <option value="Winter">Winter</option>
+                                        <option value="Monsoon">Monsoon</option>
+                                        <option value="Summer">Summer</option>
+                                        <option value="States">States</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imagefront" class="form-label">Event Page Image :</label>
+                                    <input class="form-control" type="file" id="imagefront" name="imagefront" value=""
+                                        required />
+                                </div>
+                            </div>
+                            <input type="submit" class="mx-3 btn btn-primary" name="booking" />
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="admin6">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: lightskyblue;">
+                        <h4 class="modal-title"> Total Events </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover text-center">
+                            <thead style="background-color: cadetblue;">
+                                <tr>
+                                    <th> Order Id</th>
+                                    <th> User Name</th>
+                                    <th> Comment </th>
+                                    <th> Delete </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% count=1 %>
+                                    <% commentData.forEach(function(item){ %>
+                                        <tr>
+                                            <th>
+                                                <%= count++ %>
+                                            </th>
+                                            <td>
+                                                <%= item.title %>
+                                            </td>
+                                            <td>
+                                                <%= item.comment %>
+                                            </td>
+                                            <td>
+                                                <form action="/deleteComment" method="post">
+                                                    <div class="mb-3 mx-3">
+                                                        <input type="hidden" name="title" value="<%= item.title %>" >
+                                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                                    </div>  
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

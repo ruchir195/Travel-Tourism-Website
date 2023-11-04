@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="Phone.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="js/search.js"></script> -->
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <img src="../images/logo.png" alt="" class="mx-3 my-2">
+                <a class="navbar-brand" href="/" style="color:orange;">Jouryner</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navCenter mx-auto">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-lg-5 ">
+                            <li class="nav-item" id="navcolor">
+                                <a class="nav-link" aria-current="page" href="../index">Home</a>
+                            </li>
+
+                            <% if(isAdmin) { %>
+                                <li class="nav-item" id="navcolor">
+                                    <a class="nav-link" aria-current="page" href="../admin">Admin</a>
+                                </li>
+                                <% } %>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            Events
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <div class="row eventDrop mx-5 navDropName">
+                                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                                    <li>
+                                                        <h4><b>Summer Events</b></h4>
+                                                    </li>
+
+                                                    <% summerData.forEach(function(item){ %>
+                                                        <li><a class="dropdown-item"
+                                                                href="../place/<%= item.placeName %>">
+                                                                <%= item.placeName %>
+                                                            </a></li>
+                                                        <% }) %>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                                    <li>
+                                                        <h4><b>Winter Events</b></h4>
+                                                    </li>
+                                                    <% winterData.forEach(function(item){ %>
+                                                        <li><a class="dropdown-item"
+                                                                href="../place/<%= item.placeName %>">
+                                                                <%= item.placeName %>
+                                                            </a></li>
+                                                        <% }) %>
+
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-lg-3 p-4">
+                                                    <li>
+                                                        <h4><b>Monsoon Events</b></h4>
+                                                    </li>
+                                                    <% monsoonData.forEach(function(item){ %>
+                                                        <li><a class="dropdown-item"
+                                                                href="../place/<%= item.placeName %>">
+                                                                <%= item.placeName %>
+                                                            </a></li>
+                                                        <% }) %>
+
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3 p-4 ">
+                                                    <div id="demo" class="carousel slide carousel-fade"
+                                                        data-bs-ride="carousel">
+                                                        <!-- Indicators/dots -->
+                                                        <div class="carousel-indicators">
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="0" class="active"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="1"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="2"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="3"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="4"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="5"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="6"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="7"></button>
+                                                            <button type="button" data-bs-target="#demo"
+                                                                data-bs-slide-to="8"></button>
+                                                        </div>
+
+                                                        <!-- The slideshow/carousel -->
+                                                        <div class="dropCarousel">
+                                                            <div class="carousel-item active">
+                                                                <a href="../place/Andaman.html"><img
+                                                                        src="../Images/navDropImg/Andaman Islands-2.jpg"
+                                                                        alt="Los Angeles" class="d-block w-100"></a>
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <a href="../place/pbeytdwarka.html"><img
+                                                                        src="../Images/navDropImg/beyt dwarka-1.jpg"
+                                                                        alt="Los Angeles" class="d-block w-100 "></a>
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <a href="../place/Rishikesh.html"><img
+                                                                        src="../Images/navDropImg/rishikesh-2.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/"><img
+                                                                        src="../Images/navDropImg/Ladakh-5.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/pHimachalPradesh.html"><img
+                                                                        src="../Images/navDropImg/himachal-2.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/Darjeeling.html"><img
+                                                                        src="../Images/navDropImg/Darjeeling-1.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/Goa.html"><img
+                                                                        src="../Images/navDropImg/Goa.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/rajasthan.html"><img
+                                                                        src="../Images/navDropImg/Rajasthan-1.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+
+                                                            <div class="carousel-item">
+                                                                <a href="../place/pkashmir.html"><img
+                                                                        src="../Images/navDropImg/Kashmir-2.jpg"
+                                                                        alt="New York" class="d-block w-100 "></a>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!-- Left and right controls/icons -->
+                                                        <button class="carousel-control-prev" type="button"
+                                                            data-bs-target="#demo" data-bs-slide="prev">
+
+                                                        </button>
+                                                        <button class="carousel-control-next" type="button"
+                                                            data-bs-target="#demo" data-bs-slide="next">
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../about">About</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="../contact">
+                                            Contact</a>
+                                    </li>
+
+                                    <% if(!isAuthenticated) { %>
+                                        <li class="nav-item" id="navcolor"><a href="../login" class="navacol nav-link"
+                                                aria-current="page"><i class="fa-solid fa-user logcol"></i>Login</a>
+                                        </li>
+                                        <% } else { %>
+                                            <li class="nav-item" id="navcolor"><a href="../logout"
+                                                    class="navacol nav-link" aria-current="page"><i
+                                                        class="fa-solid fa-user logcol"></i>Logout (<%= isuser.name %>)</a>
+                                            </li>
+                                            <% } %>
+
+
+
+                        </ul>
+                    </div>
+
+                    <form class="d-flex" role="search">
+                        <input id="searchTxt" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search" autofocus>
+                        <button class="btn btn-outline-primary logcol" type="submit"
+                            style="color: white;">search
+                        </button>    
+                    </form>        
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    
+
+    <div class="container">
+        <h2 class="mt-3 mx-5 px-5">Events</h2>
+        <div class="row" style="justify-content: center;">
+            <% eventData.forEach(function(item){ %>
+
+                <div id="eventImgPadding" class="noteCard my-4 mx-3 card" style="width: 18rem;">
+                    <img src="data:image/<%=item.img.contentType%>;base64,
+                                            <%=item.img.data.toString('base64')%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= item.placeName %>
+                        </h5>
+                        <p class="card-text">
+                            <%= item.placesName %><br>
+                                <%= item.duration %>
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="mb-3 mx-3">
+                            <a href="place/<%= item.placeName %>" class="btn btn-primary">Booking</a>
+                        </div>
+                        <% if(isAdmin) { %>
+                            <form action="/deleteEvent" method="post">
+                                <div class="mb-3 mx-3">
+                                    <input type="hidden" name="placeName" value="<%= item.placeName %>">
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                </div>
+                            </form>
+                        <% } %>
+                        
+                    </div>
+                </div>
+                <% }) %>
+
+
+
+                    <!-- <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/manali-5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HIMACHAL PRADESH</h5>
+                        <p class="card-text">dalhousie + kasol + manali + shimila <br>11 days 10 night</p>
+                       
+                    </div>
+                    <div class="mb-3 mx-3">
+                        <a href="place/Himachal Pradesh" class="btn btn-primary">Booking</a>
+                    </div>
+                   
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Kashmir-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">KASHMIR</h5>
+                        <p class="card-text">srinagar + vaishno devi + amarnath <br>5 days 4 night</p> 
+                    </div>
+                    <div class="mb-3 mx-3">
+                        <a href="place/Kashmir" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Jaisalmer-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">RAJASTHAN</h5> 
+                        <h5 class="card-title">RAJASTHAN</h5>
+                        <p class="card-text">udaipur + jaipur + jaisalmer + mount abu <br>10 days 11 night </p>
+                        
+                    </div>
+                    <div class="mb-3 mx-3">
+                        <a href="place/Rajasthan" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/gujarat-4.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">GUJARAT</h5>
+                        <p class="card-text">diu daman + kutch + somnath  <br>10 days 9 night </p>
+                        <a href="place/Gujarat" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Kerala-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">KERALA</h5>
+                        <p class="card-text">munnar + kochi + wayanada  <br>10 days 9 night.</p>
+                        <a href="place/kerala" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Delhi-4.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">DELHI</h5>
+                        <p class="card-text">india gate + akshardham + red fort  <br>4 days 5 night </p>
+                        <a href="place/delhi" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Up-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">UTTER PRADESH</h5>
+                        <p class="card-text">taj mahal + agra fort + ganga river  <br>10 days 9 night </p>
+                        <a href="place/pTajmahal" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Kedarnath-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">KEDARNATH</h5>
+                        <p class="card-text">kedarnath +  + tungnath + rudranath <br>8 days 9 night</p>
+                        <a href="place/pkedarnath" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Jaisalmer-1.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">JAISALMER</h5>
+                        <p class="card-text">forts and places <br>4 days 3 night </p>
+                        <a href="place/Jaiselmer" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/jaipur-3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">JAIPUR</h5>
+                        <p class="card-text">forts + lakes + places + markets <br>4 days 3 night </p>
+                        <a href="place/Jaipur" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+               
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/udaipur-1.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">UDAIPUR</h5>
+                        <p class="card-text">forts + lakes + places + markets <br>5 days 6 night</p>
+                        <a href="place/udaipur" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/mumbai-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">MUMBAI</h5>
+                        <p class="card-text">taj hotel + marien drive + juhu chopati <br>8 days 9 night </p>
+                        <a href="place/Mumbai" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/dang-2.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">DANG</h5>
+                        <p class="card-text">saputara + gira + don + saputara lake <br>6 days 7 night </p>
+                        <a href="place/mdang" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/saputara-3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">SAPUTARA</h5>
+                        <p class="card-text">saputara + lake + sunset point + waterfall <br>10 days 9 night</p>
+                        <a href="place/msaputara" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/kutch-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">KUTCH</h5>
+                        <p class="card-text">rann of kutch + camel ridding  <br>5 days 4 night </p>
+                        <a href="place/Kutch" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Ooty-1.jpg" class="card-img-top" alt="..." style="height:12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">OOTY</h5>
+                        <p class="card-text">lake + gardens + calangute  <br>6 days 4 night </p>
+                        <a href="place/ooty" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/vally of flower-1.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">VALLY OF FLOWER</h5>
+                        <p class="card-text">flowers + moutain + sangam of rivers <br>8 days 9 night</p>
+                        <a href="place/mvallyofflower" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/mount-abu=2.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">MOUNT ABU</h5>
+                        <p class="card-text">lucky lake+ sunset point <br>3 days 2 night </p>
+                        <a href="place/MountAbu" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Andaman-Islands-1.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">ANDAMAN</h5>
+                        <p class="card-text">beaches + lakes <br>7 days 9 night </p>
+                        <a href="place/Andaman" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Lakshadweep-2.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">LAKSHADWEEP</h5>
+                        <p class="card-text">beaches + grenery <br>6 days 8 night</p>
+                        <a href="place/lakshadweep" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Shillong, Meghalaya-1.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">SHILLONG, MEGHALAYA</h5>
+                        <p class="card-text">nohkalikai falls + elephant falls <br>10 days 9 night</p>
+                        <a href="place/mshillong" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Darjeeling-5.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">DARJEELING</h5>
+                        <p class="card-text">tea garden + gangtok <br>11 days 9 night </p>
+                        <a href="place/Darjeeling" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/daman-3.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">DIU DAMAN</h5>
+                        <p class="card-text">beach + adventure sports <br>8 days 9 night</p>
+                        <a href="place/Diu-Daman" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Rishikesh-2.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">RISHIKESH</h5>
+                        <p class="card-text">Laxman jula + haridwar + ganga river<br>7 days 9 night </p>
+                        <a href="place/Rishikesh" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/statue of unity-2.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">STATUE OF UNITY</h5>
+                        <p class="card-text">sardar patel+ garden + lake + amhmedabad <br>2 days 1 night</p>
+                        <a href="place/pStatueOfUnity" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/tirupati-balaji-temple.jpg.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">TIRUPATI BALAJI TEMPLE</h5>
+                        <p class="card-text">temple + spiritual place <br>6 days 9 night</p>
+                        <a href="place/Tirupati" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Somnath-1.png" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">SOMNATH</h5>
+                        <p class="card-text">dwarka + sea side <br>8 days 9 night </p>
+                        <a href="place/psomanath" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/beyt dwarka-1.jpeg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">BEYT DWARKA</h5>
+                        <p class="card-text">dwarka + somnath <br>8 days 9 night</p>
+                        <a href="place/pbeytdwarka" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/polo forest-3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">POLO FOREST</h5>
+                        <p class="card-text">adventure + trekking <br>7 days 9 night</p>
+                        <a href="place/mpoloforest" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/punjab-1.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">PUNJAB</h5>
+                        <p class="card-text">amritsar + golden temple <br>7 days 9 night</p>
+                        <a href="place/pamritsar" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Ladakh-3.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">LEH LADAKH</h5>
+                        <p class="card-text">shanti stupa + hemis gumpa <br>7 days 6 night </p>
+                        <a href="place/ladakh" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/simla-1.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">SHIMLA</h5>
+                        <p class="card-text">kali bari temple + christ chruch <br>8 days 9 night</p>
+                        <a href="place/Shimla" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+
+
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/kasol-1.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">KASOL</h5>
+                        <p class="card-text">trekking  + gardens + dancemoon  <br>3 days 2 night</p>
+                        <a href="place/kasol" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/manali-2.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">MANALI</h5>
+                        <p class="card-text"> solang valley+ rohtang pass <br>8 days 6 night </p>
+                        <a href="place/Manli" class="btn btn-primary">Booking</a>
+                    </div>
+                </div>
+                <div id="eventImgPadding" class="noteCard mx-3 my-4 card" style="width: 18rem;">
+                    <img src="../Images/eventPageImages/Dalhousie-6.jpg" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">DALHOUSIE</h5>
+                        <p class="card-text"> mountains + snow+ trekking<br>6 days 7 night</p>
+                        <a href="place/Dalhousie" class="btn btn-primary">Booking</a>
+                    </div>
+                </div> -->
+
+
+
+        </div>
+    </div>
+
+
+    <%- include('partials/footer') %>
+        </div>
+
+        <script src="js/search.js"></script>
+
+</body>
+
+</html>

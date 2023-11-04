@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../Images/booking-bg.jpg");
+    /* background-color: beige; */
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.table-date {
+    padding: 35px;
+    position: absolute;
+    opacity: 0.9;
+    z-index: 1;
+    background: linear-gradient(45deg, #0a1623, #3a67b1, #0a1623);
+    width: 40%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    line-height: 180%;
+    font-size: 25px;
+    color:  #ffa500;
+    font-family: 'Exo 2', sans-serif;
+    border-left: 10px solid #3aaab1;
+    border-bottom: 10px solid #3aaab1;
+}
+
+#detail
+{
+    margin-left: 10px;
+}
+.table-date {
+   
+    display: flex;
+    flex-direction: column; 
+}
+
+table tr,
+td {
+    border: 1px solid black;
+}
+.table-head
+{
+    line-height: 95%;
+    /* margin-top: -30px;
+    margin-left: -35px; */
+    border-bottom: 3px solid #3aaab1;
+}
+.common
+{
+    color: white;
+}
+.common_type
+{
+    color:  #ffa500;
+}
+@media screen and (max-width:1911px) {
+    .table-date
+    {
+        width: 42%;
+        /* color: red; */
+    }
+}
+@media screen and (max-width:1650px) {
+    .table-date
+    {
+        width: 45%;
+    }
+}
+@media screen and (max-width:1350px) {
+    .table-date
+    {
+        line-height: 180%;
+    }
+}
+@media screen and (max-width:1065px) {
+    .table-date
+    {
+        width: 50%;
+        
+    }
+}
+@media screen and (max-width:950px) {
+    .table-date
+    {
+        width: 58%;
+        
+    }
+}
+@media screen and (max-width:815px) {
+    .table-date{
+        font-size: 18px;
+        
+    }
+}
+@media screen and (max-width:590px) {
+    .table-date
+    {
+        width: 66%;
+        /* color: red; */
+        line-height: 150%;
+    }
+}

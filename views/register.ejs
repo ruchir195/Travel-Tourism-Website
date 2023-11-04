@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+</head>
+
+<body style="background-color: #e7edf4;">
+    <div>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <img src="Images/logo.png" alt="" class="mx-3  my-2">
+                <a class="navbar-brand" href="index" style="color:orange;">Jouryner</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                    <!-- <div>
+                        <form class="d-flex" role="search">
+                            <button class="btn btn-outline-primary" type="submit"><a href="event.html"><i
+                                        class="fa-solid fa-magnifying-glass logcol"></i>Search</a></button>
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <% if(messages.length> 0){ %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="msgShowTime">
+            <strong><i class="fa-solid fa-triangle-exclamation fa-xl mx-3" style="color: #940000;"></i></strong>
+            <%= messages %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+            <script>
+                const errorAlert = document.getElementById('msgShowTime');
+                if (errorAlert) {
+                    setTimeout(function () {
+                        errorAlert.style.display = 'none';
+                    }, 5000);
+                }
+            </script>
+
+            <div>
+                <div class="d-flex container my-5 py-3 aligns-items-center justify-content-center mx-auto;">
+                    <div class="card">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a href="register"> <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home-tab-pane" type="button" role="tab"
+                                        aria-controls="home-tab-pane" aria-selected="true">Sign Up</button></a>
+
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="login"><button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                        aria-controls="profile-tab-pane" aria-selected="false"
+                                        style="color: black; ">Login</button></a>
+                            </li>
+                        </ul>
+                        <div class="container mt-4">
+                            <p class="h3 mx-5">Create Your Jouryner Account</p>
+                        </div>
+                        <div class="tab-content container mt-3" id="myTabContent">
+                            <div class="tab-pane fade show active mx-5" id="home-tab-pane" role="tabpanel"
+                                aria-labelledby="home-tab" tabindex="0">
+
+                                <form onsubmit="return validateRegisterForm();" action="/register" method="post">
+                                    <div class="mb-3 ">
+                                        <label for="text" class="form-label mx-0">Username:*</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="ruchir195">
+                                        <span id="name-error" class="error-message"></span>
+                                    </div>
+
+                                    <div class="mb-3 ">
+                                        <label for="exampleFormControlInput1" class="form-label mx-0">Email
+                                            address:*</label>
+                                        <input type="text" class="form-control" id="email" name="username"
+                                            placeholder="name@example.com">
+                                        <span id="email-error" class="error-message"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputPassword5" class="form-label">Password:*</label>
+                                        <input type="password" id="password" class="form-control input-sm pre"
+                                            name="password" aria-labelledby="passwordHelpBlock">
+                                        <span id="password-error" class="error-message"></span>
+                                        <div id="passwordHelpBlock" class="form-text">
+                                        </div>
+                                        <!-- </div>    
+                            <div class="mb-3">
+                                <label for="inputPassword5" class="form-label">Confirm Password:*</label>
+                                <input type="password" id="inputPassword5" class="form-control input-sm next" name="password"
+                                    aria-labelledby="passwordHelpBlock">
+                                <div id="passwordHelpBlock" class="form-text">
+                                </div> -->
+
+
+                                        <div class="mt-4">
+                                            <input class="btn btn-primary" type="submit" value="Register">
+                                        </div>
+
+                                        <p style="width: 40%; display: flex; align-items: center; justify-content: space-between; width:100%;"
+                                            class="my-5">
+                                            <span
+                                                style="border-bottom: 1px solid; width:40%; color:gray;background-color:gray"></span>OR
+                                            <span
+                                                style="border-bottom: 1px solid; width: 40%; color:gray;background-color:gray"></span>
+                                        </p>
+
+                                    </div>
+                                </form>
+
+                                <div style="display: flex;" class="row my-5">
+                                    <div class="col-sm-2 mx-2" style="width: 14rem;">
+                                        <div class="card " style="border: none;">
+                                            <div class="card-body" style="padding-left: 0px;">
+                                                <a class="btn btn-block btn-social btn-google" href="/auth/google"
+                                                    role="button">
+                                                    <i class="fab fa-google"></i>
+
+                                                    <p class="mx-2 my-0">Sign Up with Google</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2 mx-2" style="width: 14rem;">
+                                        <div class="card" style="border: none;">
+                                            <div class="card-body" style="padding-left: 0px;">
+                                                <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook"
+                                                    role="button">
+                                                    <i class="fab fa-facebook"></i>
+                                                    <p class="mx-2 my-0">Sign Up with Facebook</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                            tabindex="0">Ruchir</div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('partials/footer') %>
+
+                <script src="../js/loginValidation.js"></script>
+
+
+</body>
+
+</html>
