@@ -10,9 +10,6 @@
 
                 <!--2. carousel -->
                 <div>
-
-                 
-
                     <div id="demo" class="carousel slide" data-bs-ride="carousel">
                         <!-- Indicators/dots -->
                         <div class="carousel-indicators">
@@ -36,6 +33,14 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             <% } %>
+
+                            <% if(messagesErrorComment.length> 0){ %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="msgShowTime">
+                                    <strong><i class="fa-solid fa-triangle-exclamation fa-xl mx-3" style="color: #940000;"></i></strong>
+                                    <%= messagesErrorComment %>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <% } %>
         
                             
                     <script>
@@ -542,18 +547,19 @@
                                             <%=item.profileimg.data.toString('base64')%>" class="mb-4" alt="..." />
                                         <% } else { %>
                                             <!-- You might display a placeholder image or an alternative content here -->
-                                            <!-- <img src="../images/userLogo-2.png" alt="" class="mb-4"> -->
+                                            <img src="../images/userLogo-2.png" alt="" class="mb-4">
                                             <% } %>
 
-                                                <% /* %>
+                                            <% /* %>
                                                     <% if(item.profileimg){ %>
                                                         <img loading="lazy" src="data:image/<%=item.profileimg.contentType%>;base64,
                                             <%=item.profileimg.data.toString('base64')%>" class="mb-4" alt="..." />
-                                                        <% }else{ %>
-                                                            <img src="../images/userLogo-2.png" alt="" class="mb-4">
-                                                            <% } %>
+                                                    <% }else{ %>
+                                                        <img src="../images/userLogo-2.png" alt="" class="mb-4">
+                                                    <% } %>
 
-                                                                <% */ %>
+
+                                                    <% */ %>        
 
                                                                     <div>
                                                                         <div>
@@ -621,8 +627,8 @@
                                                 </div>
                             
                                                 <div class="modal-body">
-                                                    <div class="container my-3 mt-5">
-                                                        <h1>Welcome To Comment Section</h1>
+                                                    <div class="container my-3 mt-2">
+                                                        <h2>Welcome To Comment Section</h2>
                                                         <hr>
                                                         <div class=" my-4">
                                                             <div class="card-body">
@@ -634,9 +640,9 @@
                                                                     </div>
                                                                     
                                                                     <div class="my-4">
-                                                                        <h5 class="card-title">Add Name</h5>
+                                                                        <h5 class="card-title">Name</h5>
                                                                         <input type="text" class="form-control mt-2" id="addTitle" name="title" aria-describedby="title"
-                                                                            placeholder="Enter Name">
+                                                                            value="<%= isuser.name %>" readonly>
                                                                         <small id="title" class="form-text text-muted invalid-feedback">
                                                                             Your username must be 2-10 characters long and should not start with a number
                                                                         </small>

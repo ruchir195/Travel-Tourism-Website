@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -26,236 +27,524 @@
 <body>
     <%- include('partials/adminNavbar') %>
 
-        <div class="container my-2">
-            <h1 class="text-center mt-5" style="color: rgb(90, 172, 222);"> Admin Desk </h1>
-            <br>
-
-            <div class="mx-3" >
-                <div class="row" style="justify-content: center;">
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin1">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/customer.gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h3>
-                                <%= userdata.length %>
-                            </h3>
-                            <p style="font-size: 30px; "> <b> USERS </b></p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-    
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin2">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/list (1).gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h3>
-                                <%= placeData.length %>
-                            </h3>
-                            <p style="font-size: 30px;"> <b> TOTAL EVENT </b></p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-    
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/appointment.gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h4> Add new Event details here </h4>
-                            <p style="font-size: 30px;"> <b> ADD EVENT</b></p>
-                            <a href="adminevent" class="stretched-link"></a>
-                        </div>
-                    </div>
-    
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin4">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/edit.gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h3>
-                             
-                            </h3>
-                            <p style="font-size: 30px;"> <b> UPDATE EVENT </b></p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-    
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin5">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/add-image.gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h3>
-                               
-                            </h3>
-                            <p style="font-size: 30px;"> <b> ADD FRONT PAGE EVENT </b></p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-
-                    <div class="card mx-3 my-4" style="border: 3px solid lightskyblue; width: 20rem;" data-toggle="modal" data-target="#admin6">
-                        <img class="card-img-top"
-                            src="../Images/Admin Image/three-friends.gif"
-                            alt="">
-                        <div class="card-body text-center">
-                            <br>
-                            <h3>
-                                <%= commentData.length %>
-                            </h3>
-                            <p style="font-size: 30px;"> <b> Show Comment </b></p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div>
-    
-                </div>
+        <% if(messagesSuccessFrontPageEvent.length> 0){ %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="msgShowTime">
+                <strong><i class="fa-solid fa-circle-check fa-xl mx-3" style="color: #195744;"></i></strong>
+                <%= messagesSuccessFrontPageEvent %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            <% } %>
 
-           
-        </div>
-
-        <div class="modal fade" id="admin1">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: lightskyblue;">
-                        <h4 class="modal-title"> User Information </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <% if(messagesErrorFrontPageEvent.length> 0){ %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="msgShowTime">
+                        <strong><i class="fa-solid fa-triangle-exclamation fa-xl mx-3"
+                                style="color: #940000;"></i></strong>
+                        <%= messagesErrorFrontPageEvent %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
+                    <% } %>
 
-                    <div class="modal-body">
-                        <table class="table table-bordered table-hover">
-                            <thead style="background-color: cadetblue;">
-                                <tr>
-                                    <th> User Id</th>
-                                    <th> Customer Name </th>
-                                    <th> Email Id </th>
-                                    <th> Mobile No. </th>
-                                    <th> Package Name</th>
-                                    <th> City</th>
-                                    <th> Adhar Number: </th>
-                                    <th> Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% count=1 %>
-                                    <% userdata.forEach(function(item){ %>
-                                        <tr>
-                                            <th>
-                                                <%= count++ %>
-                                            </th>
-                                            <td>
-                                                <%= item.firstName %>
-                                                    <%= item.lastName %>
-                                            </td>
-                                            <td>
-                                                <%= item.email %>
-                                            </td>
-                                            <td>
-                                                <%= item.phone %>
-                                            </td>
-                                            <td>
-                                                <%= item.pName %>
-                                            </td>
-                                            <td>
-                                                <%= item.city %>
-                                            </td>
-                                            <td>
-                                                <%= item.adharNumber %>
-                                            </td>
-                                            <td>
-                                                <%= item.price %>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <% if(messagesSuccessDeleteComment.length> 0){ %>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert" id="msgShowTime">
+                                <strong><i class="fa-solid fa-circle-check fa-xl mx-3"
+                                        style="color: #195744;"></i></strong>
+                                <%= messagesSuccessDeleteComment %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                        <% } %>
 
-        <div class="modal fade" id="admin2">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: lightskyblue;">
-                        <h4 class="modal-title"> Total Events </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                <% if(messagesErrorDeleteComment.length> 0){ %>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert"
+                                        id="msgShowTime">
+                                        <strong><i class="fa-solid fa-triangle-exclamation fa-xl mx-3"
+                                                style="color: #940000;"></i></strong>
+                                        <%= messagesErrorDeleteComment %>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <% } %>
 
-                    <div class="modal-body">
-                        <table class="table table-bordered table-hover text-center">
-                            <thead style="background-color: cadetblue;">
-                                <tr>
-                                    <th> Order Id</th>
-                                    <th> Place Name</th>
-                                    <th> Places Name </th>
-                                    <th> Hotel Name </th>
-                                    <th> Hotel Address </th>
-                                    <th> Hotel Rating </th>
-                                    <th> Duration </th>
-                                    <th> Greeting </th>
-                                    <th> Age </th>
-                                    <th> Price </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% count=1 %>
-                                    <% placeData.forEach(function(item){ %>
-                                        <tr>
-                                            <th>
-                                                <%= count++ %>
-                                            </th>
-                                            <td>
-                                                <%= item.placeName %>
-                                            </td>
-                                            <td>
-                                                <%= item.placesName %>
-                                            </td>
-                                            <td>
-                                                <%= item.hotelName %>
-                                            </td>
-                                            <td>
-                                                <%= item.area %>
-                                            </td>
-                                            <td>
-                                                <%= item.hotelRating %>
-                                            </td>
-                                            <td>
-                                                <%= item.duration %>
-                                            </td>
-                                            <td>
-                                                <%= item.greeting %>
-                                            </td>
-                                            <td>
-                                                <%= item.age %>
-                                            </td>
-                                            <td>
-                                                <%= item.price %>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                        <% if(messagesSuccessPlaceUpdate.length> 0){ %>
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert"
+                                                id="msgShowTime">
+                                                <strong><i class="fa-solid fa-circle-check fa-xl mx-3"
+                                                        style="color: #195744;"></i></strong>
+                                                <%= messagesSuccessPlaceUpdate %>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <% } %>
 
-        <!-- <div class="modal fade" id="admin3">
+                                                <% if(messagesErrorPlaceUpdate.length> 0){ %>
+                                                    <div class="alert alert-danger alert-dismissible fade show"
+                                                        role="alert" id="msgShowTime">
+                                                        <strong><i class="fa-solid fa-triangle-exclamation fa-xl mx-3"
+                                                                style="color: #940000;"></i></strong>
+                                                        <%= messagesErrorPlaceUpdate %>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <% } %>
+
+                                                        <% if(messagesSuccessEventpage.length> 0){ %>
+                                                            <div class="alert alert-success alert-dismissible fade show"
+                                                                role="alert" id="msgShowTime">
+                                                                <strong><i class="fa-solid fa-circle-check fa-xl mx-3"
+                                                                        style="color: #195744;"></i></strong>
+                                                                <%= messagesSuccessEventpage %>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="alert"
+                                                                        aria-label="Close"></button>
+                                                            </div>
+                                                            <% } %>
+
+                                                                <% if(messagesErrorEventpage.length> 0){ %>
+                                                                    <div class="alert alert-danger alert-dismissible fade show"
+                                                                        role="alert" id="msgShowTime">
+                                                                        <strong><i
+                                                                                class="fa-solid fa-triangle-exclamation fa-xl mx-3"
+                                                                                style="color: #940000;"></i></strong>
+                                                                        <%= messagesErrorEventpage %>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="alert"
+                                                                                aria-label="Close"></button>
+                                                                    </div>
+                                                                    <% } %>
+
+                                                                        <% if(messagesSuccessDeleteEvent.length> 0){ %>
+                                                                            <div class="alert alert-success alert-dismissible fade show"
+                                                                                role="alert" id="msgShowTime">
+                                                                                <strong><i
+                                                                                        class="fa-solid fa-circle-check fa-xl mx-3"
+                                                                                        style="color: #195744;"></i></strong>
+                                                                                <%= messagesSuccessDeleteEvent %>
+                                                                                    <button type="button"
+                                                                                        class="btn-close"
+                                                                                        data-bs-dismiss="alert"
+                                                                                        aria-label="Close"></button>
+                                                                            </div>
+                                                                            <% } %>
+
+
+                                                                                <script>
+                                                                                    const errorAlert = document.getElementById('msgShowTime');
+                                                                                    if (errorAlert) {
+                                                                                        setTimeout(function () {
+                                                                                            errorAlert.style.display = 'none';
+                                                                                        }, 5000);
+                                                                                    }
+                                                                                </script>
+
+                                                                                <div class="container my-2">
+                                                                                    <h1 class="text-center mt-5"
+                                                                                        style="color: rgb(90, 172, 222);">
+                                                                                        Admin Desk </h1>
+                                                                                    <br>
+
+                                                                                    <div class="mx-3">
+                                                                                        <div class="row"
+                                                                                            style="justify-content: center;">
+                                                                                            <div class="card mx-3 my-4"
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;"
+                                                                                                data-toggle="modal"
+                                                                                                data-target="#admin1">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/customer.gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h3>
+                                                                                                        <%= userdata.length
+                                                                                                            %>
+                                                                                                    </h3>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px; ">
+                                                                                                        <b> USERS </b>
+                                                                                                    </p>
+                                                                                                    <a href="#"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="card mx-3 my-4"  
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;"
+                                                                                                data-toggle="modal"
+                                                                                                data-target="#admin2">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/list (1).gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h3>
+                                                                                                        <%= placeData.length
+                                                                                                            %>
+                                                                                                    </h3>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px;">
+                                                                                                        <b> TOTAL EVENT
+                                                                                                        </b>
+                                                                                                    </p>
+                                                                                                    <a href="#"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="card mx-3 my-4"
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/appointment.gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h4> Add new Event
+                                                                                                        details here
+                                                                                                    </h4>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px;">
+                                                                                                        <b> ADD
+                                                                                                            EVENT</b>
+                                                                                                    </p>
+                                                                                                    <a href="adminevent"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="card mx-3 my-4"
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;"
+                                                                                                data-toggle="modal"
+                                                                                                data-target="#admin4">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/edit.gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h3>
+
+                                                                                                    </h3>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px;">
+                                                                                                        <b> UPDATE EVENT
+                                                                                                        </b>
+                                                                                                    </p>
+                                                                                                    <a href="#"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="card mx-3 my-4"
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;"
+                                                                                                data-toggle="modal"
+                                                                                                data-target="#admin5">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/add-image.gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h3>
+
+                                                                                                    </h3>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px;">
+                                                                                                        <b> ADD FRONT
+                                                                                                            PAGE EVENT
+                                                                                                        </b>
+                                                                                                    </p>
+                                                                                                    <a href="#"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="card mx-3 my-4"
+                                                                                                style="border: 3px solid lightskyblue; width: 20rem;"
+                                                                                                data-toggle="modal"
+                                                                                                data-target="#admin6">
+                                                                                                <img class="card-img-top"
+                                                                                                    src="../Images/Admin Image/three-friends.gif"
+                                                                                                    alt="">
+                                                                                                <div
+                                                                                                    class="card-body text-center">
+                                                                                                    <br>
+                                                                                                    <h3>
+                                                                                                        <%= commentData.length
+                                                                                                            %>
+                                                                                                    </h3>
+                                                                                                    <p
+                                                                                                        style="font-size: 30px;">
+                                                                                                        <b> Show Comment
+                                                                                                        </b>
+                                                                                                    </p>
+                                                                                                    <a href="#"
+                                                                                                        class="stretched-link"></a>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                </div>
+
+                                                                                <div class="modal fade" id="admin1">
+                                                                                    <div
+                                                                                        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header"
+                                                                                                style="background-color: lightskyblue;">
+                                                                                                <h4 class="modal-title">
+                                                                                                    User Information
+                                                                                                </h4>
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal">&times;</button>
+                                                                                            </div>
+
+                                                                                            <form class="d-flex mx-5 my-3" role="search">
+                                                                                                <select id="filterName" class="mx-2">
+                                                                                                    <option value="Name">Name</option>
+                                                                                                    <option value="Email-id">Email-id</option>
+                                                                                                    <option value="Package Name">Package Name</option>
+                                                                                                    <option value="Phone">Phone</option>
+                                                                                                    <option value="Date">Date</option>
+                                                                                                    <option value="City">City</option>
+                                                                                                </select>
+                                                                                                <input id="adminSearch" class="form-control me-2" type="search" placeholder="Search"
+                                                                                                    aria-label="Search" autofocus>
+                                                                                                <button class="btn btn-primary" type="submit">search
+                                                                                                </button>    
+                                                                                            </form>  
+
+                                                                                            <div class="modal-body">
+                                                                                                <table
+                                                                                                    class="table table-bordered table-hover">
+                                                                                                    <thead
+                                                                                                        style="background-color: cadetblue;">
+                                                                                                        <tr>
+                                                                                                            <th> User Id
+                                                                                                            </th>
+                                                                                                            <th> Customer
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> Email
+                                                                                                                Id </th>
+                                                                                                            <th> Mobile
+                                                                                                                No.
+                                                                                                            </th>
+                                                                                                            <th> Package
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> City
+                                                                                                            </th>
+                                                                                                            <th> Date
+                                                                                                            </th>
+                                                                                                            <th> Adhar
+                                                                                                                Number:
+                                                                                                            </th>
+                                                                                                            <th> Price
+                                                                                                            </th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        <% count=1 %>
+                                                                                                            <% userdata.forEach(function(item){
+                                                                                                                %>
+                                                                                                                <tr class="nameSearch">
+                                                                                                                    <th>
+                                                                                                                        <%= count++
+                                                                                                                            %>
+                                                                                                                    </th>
+                                                                                                                    <td class="name">
+                                                                                                                        <%= item.firstName
+                                                                                                                            %>
+                                                                                                                            <%= item.lastName
+                                                                                                                                %>
+                                                                                                                    </td>
+                                                                                                                    <td class="email">
+                                                                                                                        <%= item.email
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td class="phone">
+                                                                                                                        <%= item.phone
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td class="packageName">
+                                                                                                                        <%= item.pName
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td class="city">
+                                                                                                                        <%= item.city
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td class="date">
+                                                                                                                        <%= item.date
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.adharNumber
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.price
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <% }) %>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </div>
+
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-danger"
+                                                                                                    data-dismiss="modal">Close</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="modal fade" id="admin2">
+                                                                                    <div
+                                                                                        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header"
+                                                                                                style="background-color: lightskyblue;">
+                                                                                                <h4 class="modal-title">
+                                                                                                    Total Events </h4>
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal">&times;</button>
+                                                                                            </div>
+
+                                            
+
+                                                                                            <form class="d-flex mx-5 my-3" role="search">
+                                                                                                <input id="adminEventSearch" class="form-control me-2" type="search" placeholder="Search"
+                                                                                                    aria-label="Search" autofocus>
+                                                                                                <button class="btn btn-primary" type="submit">search
+                                                                                                </button>    
+                                                                                            </form>  
+                                                                                            
+
+                                                                                            <div class="modal-body">
+                                                                                                <table
+                                                                                                    class="table table-bordered table-hover text-center">
+                                                                                                    <thead
+                                                                                                        style="background-color: cadetblue;">
+                                                                                                        <tr>
+                                                                                                            <th> Order
+                                                                                                                Id</th>
+                                                                                                            <th> Place
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> Places
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> Hotel
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> Hotel
+                                                                                                                Address
+                                                                                                            </th>
+                                                                                                            <th> Hotel
+                                                                                                                Rating
+                                                                                                            </th>
+                                                                                                            <th> Duration
+                                                                                                            </th>
+                                                                                                            <th> Greeting
+                                                                                                            </th>
+                                                                                                            <th> Age
+                                                                                                            </th>
+                                                                                                            <th> Price
+                                                                                                            </th>
+                                                                                                            <th> Delete
+                                                                                                            </th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody >
+                                                                                                        <% count=1 %>
+                                                                                                            <% placeData.forEach(function(item){
+                                                                                                                %>
+                                                                                                                <tr class="eventSearch">
+                                                                                                                    <th>
+                                                                                                                        <%= count++
+                                                                                                                            %>
+                                                                                                                    </th>
+                                                                                                                    <td class="eventName">
+                                                                                                                        <%= item.placeName
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.placesName
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.hotelName
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.area
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.hotelRating
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.duration
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.greeting
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.age
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.price
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <form
+                                                                                                                            action="/deleteEvent"
+                                                                                                                            method="post">
+                                                                                                                            <div
+                                                                                                                                class="mb-3 mx-3">
+                                                                                                                                <input
+                                                                                                                                    type="hidden"
+                                                                                                                                    name="title"
+                                                                                                                                    value="<%= item.title %>">
+                                                                                                                                <button
+                                                                                                                                    type="submit"
+                                                                                                                                    class="btn btn-primary">Delete</button>
+                                                                                                                            </div>
+                                                                                                                        </form>
+                                                                                                                    </td>
+
+                                                                                                                </tr>
+                                                                                                                <% }) %>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </div>
+
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-danger"
+                                                                                                    data-dismiss="modal">Close</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- <div class="modal fade" id="admin3">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: lightskyblue;">
@@ -353,141 +642,263 @@
                 </div>
             </div>
         </div> -->
-        </div>
+                                                                                </div>
 
 
-        <div class="modal fade" id="admin4">
-            <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: lightskyblue;">
-                        <h4 class="modal-title">Update Event Information</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                                                                <div class="modal fade" id="admin4">
+                                                                                    <div
+                                                                                        class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header"
+                                                                                                style="background-color: lightskyblue;">
+                                                                                                <h4 class="modal-title">
+                                                                                                    Update Event
+                                                                                                    Information</h4>
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal">&times;</button>
+                                                                                            </div>
 
-                    <div class="modal-body">
-                        <div class="container mt-3">
-                            <form action="/eventUpdate" method="post">
-                                <div class="mb-3">
-                                    <label for="placeName" class="form-label">Place Name :</label>
-                                    <select name="placeName" id="placeName">
-                                        <% placeData.forEach(function(item){ %>
-                                            <option value="<%= item.placeName %>">
-                                                <%= item.placeName %>
-                                            </option>
-                                            <% }) %>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div
+                                                                                                    class="container mt-3">
+                                                                                                    <form
+                                                                                                        action="/eventUpdate"
+                                                                                                        method="post">
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                for="placeName"
+                                                                                                                class="form-label">Place
+                                                                                                                Name
+                                                                                                                :</label>
+                                                                                                            <select
+                                                                                                                name="placeName"
+                                                                                                                id="placeName">
+                                                                                                                <% placeData.forEach(function(item){
+                                                                                                                    %>
+                                                                                                                    <option
+                                                                                                                        value="<%= item.placeName %>">
+                                                                                                                        <%= item.placeName
+                                                                                                                            %>
+                                                                                                                    </option>
+                                                                                                                    <% })
+                                                                                                                        %>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <button
+                                                                                                                class="btn btn-primary"
+                                                                                                                type="submit">Submit</button>
+                                                                                                        </div>
+                                                                                                    </form>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-danger"
+                                                                                                    data-dismiss="modal">Close</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-        <div class="modal fade" id="admin5">
-            <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: lightskyblue;">
-                        <h4 class="modal-title">Front Page Event</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                                                                <div class="modal fade" id="admin5">
+                                                                                    <div
+                                                                                        class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header"
+                                                                                                style="background-color: lightskyblue;">
+                                                                                                <h4 class="modal-title">
+                                                                                                    Front Page Event
+                                                                                                </h4>
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal">&times;</button>
+                                                                                            </div>
 
-                    <div class="modal-body">
-                        <form action="/adminFrontEvent" method="POST" enctype="multipart/form-data">
-                            <div class="container my-5">
-                                <div class="mb-3">
-                                    <label for="placeName" class="form-label">Place Name :</label>
-                                    <select name="placeName" id="placeName">
-                                        <% placeData.forEach(function(item){ %>
-                                            <option value="<%= item.placeName %>"><%= item.placeName %></option>
-                                        <% }) %>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="frontEvent" class="form-label">Type of Events:</label>
-                                    <select name="frontEvent" id="frontEvent">
-                                        <option value="Popular">Popular</option>
-                                        <option value="Winter">Winter</option>
-                                        <option value="Monsoon">Monsoon</option>
-                                        <option value="Summer">Summer</option>
-                                        <option value="States">States</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="imagefront" class="form-label">Event Page Image :</label>
-                                    <input class="form-control" type="file" id="imagefront" name="imagefront" value=""
-                                        required />
-                                </div>
-                            </div>
-                            <input type="submit" class="mx-3 btn btn-primary" name="booking" />
-                        </form>
-                    </div>
+                                                                                            <div class="modal-body">
+                                                                                                <form
+                                                                                                    action="/adminFrontEvent"
+                                                                                                    method="POST"
+                                                                                                    enctype="multipart/form-data">
+                                                                                                    <div
+                                                                                                        class="container my-5">
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                for="placeName"
+                                                                                                                class="form-label">Place
+                                                                                                                Name
+                                                                                                                :</label>
+                                                                                                            <select
+                                                                                                                name="placeName"
+                                                                                                                id="placeName">
+                                                                                                                <% placeData.forEach(function(item){
+                                                                                                                    %>
+                                                                                                                    <option
+                                                                                                                        value="<%= item.placeName %>">
+                                                                                                                        <%= item.placeName
+                                                                                                                            %>
+                                                                                                                    </option>
+                                                                                                                    <% })
+                                                                                                                        %>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                for="frontEvent"
+                                                                                                                class="form-label">Type
+                                                                                                                of
+                                                                                                                Events:</label>
+                                                                                                            <select
+                                                                                                                name="frontEvent"
+                                                                                                                id="frontEvent">
+                                                                                                                <option
+                                                                                                                    value="Popular">
+                                                                                                                    Popular
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="Winter">
+                                                                                                                    Winter
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="Monsoon">
+                                                                                                                    Monsoon
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="Summer">
+                                                                                                                    Summer
+                                                                                                                </option>
+                                                                                                                <option
+                                                                                                                    value="States">
+                                                                                                                    States
+                                                                                                                </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                for="imagefront"
+                                                                                                                class="form-label">Event
+                                                                                                                Page
+                                                                                                                Image
+                                                                                                                :</label>
+                                                                                                            <input
+                                                                                                                class="form-control"
+                                                                                                                type="file"
+                                                                                                                id="imagefront"
+                                                                                                                name="imagefront"
+                                                                                                                value=""
+                                                                                                                required />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <input type="submit"
+                                                                                                        class="mx-3 btn btn-primary"
+                                                                                                        name="booking" />
+                                                                                                </form>
+                                                                                            </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-danger"
+                                                                                                    data-dismiss="modal">Close</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
 
-        <div class="modal fade" id="admin6">
-            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: lightskyblue;">
-                        <h4 class="modal-title"> Total Events </h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                                                                <div class="modal fade" id="admin6">
+                                                                                    <div
+                                                                                        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header"
+                                                                                                style="background-color: lightskyblue;">
+                                                                                                <h4 class="modal-title">
+                                                                                                    Comments </h4>
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal">&times;</button>
+                                                                                            </div>
 
-                    <div class="modal-body">
-                        <table class="table table-bordered table-hover text-center">
-                            <thead style="background-color: cadetblue;">
-                                <tr>
-                                    <th> Order Id</th>
-                                    <th> User Name</th>
-                                    <th> Comment </th>
-                                    <th> Delete </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% count=1 %>
-                                    <% commentData.forEach(function(item){ %>
-                                        <tr>
-                                            <th>
-                                                <%= count++ %>
-                                            </th>
-                                            <td>
-                                                <%= item.title %>
-                                            </td>
-                                            <td>
-                                                <%= item.comment %>
-                                            </td>
-                                            <td>
-                                                <form action="/deleteComment" method="post">
-                                                    <div class="mb-3 mx-3">
-                                                        <input type="hidden" name="title" value="<%= item.title %>" >
-                                                        <button type="submit" class="btn btn-primary">Delete</button>
-                                                    </div>  
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                                                            <form class="d-flex mx-5 my-3" role="search">
+                                                                                                <input id="adminCommentSearch" class="form-control me-2" type="search" placeholder="Search"
+                                                                                                    aria-label="Search" autofocus>
+                                                                                                <button class="btn btn-primary" type="submit">search
+                                                                                                </button>    
+                                                                                            </form>  
+
+                                                                                            <div class="modal-body">
+                                                                                                <table
+                                                                                                    class="table table-bordered table-hover text-center">
+                                                                                                    <thead
+                                                                                                        style="background-color: cadetblue;">
+                                                                                                        <tr>
+                                                                                                            <th> Order
+                                                                                                                Id</th>
+                                                                                                            <th> User
+                                                                                                                Name
+                                                                                                            </th>
+                                                                                                            <th> Comment
+                                                                                                            </th>
+                                                                                                            <th> Delete
+                                                                                                            </th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        <% count=1 %>
+                                                                                                            <% commentData.forEach(function(item){
+                                                                                                                %>
+                                                                                                                <tr class="commentSearch">
+                                                                                                                    <th>
+                                                                                                                        <%= count++
+                                                                                                                            %>
+                                                                                                                    </th>
+                                                                                                                    <td class="commentName">
+                                                                                                                        <%= item.title
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= item.comment
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <form
+                                                                                                                            action="/deleteComment"
+                                                                                                                            method="post">
+                                                                                                                            <div
+                                                                                                                                class="mb-3 mx-3">
+                                                                                                                                <input
+                                                                                                                                    type="hidden"
+                                                                                                                                    name="title"
+                                                                                                                                    value="<%= item.title %>">
+                                                                                                                                <button
+                                                                                                                                    type="submit"
+                                                                                                                                    class="btn btn-primary">Delete</button>
+                                                                                                                            </div>
+                                                                                                                        </form>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <% }) %>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </div>
+
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-danger"
+                                                                                                    data-dismiss="modal">Close</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+<script src="../js/adminSearch.js"></script>                                                                               
 </body>
 
 </html>

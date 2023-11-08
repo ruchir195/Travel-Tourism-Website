@@ -130,6 +130,7 @@ let adminEventSearch = document.getElementById('adminEventSearch');
 
 adminEventSearch.addEventListener("input", function () {
     let inputVal1 = adminEventSearch.value.trim().toLowerCase();
+    console.log(inputVal1);
     let inputWords1 = inputVal1.split(/\s+/);
 
     let eventSearchRows = document.querySelectorAll('.eventSearch');

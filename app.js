@@ -250,7 +250,7 @@ app.get("/", async function (req, res) {
     const comment = await Comment.find({});
 
     if (popular || winter || monsoon || summer || states) {
-        res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment')  })
+        res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment'),  messagesErrorComment: req.flash('errorComment')  })
     } else {
         console.log('Failed to retrieve the Course List: ' + err);
     }
@@ -300,7 +300,7 @@ app.get("/index", async function (req, res) {
     const comment = await Comment.find({});
 
     if (popular || winter || monsoon || summer || states) {
-        res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment')  })
+        res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment'), messagesErrorComment: req.flash('errorComment') })
 
     } else {
         console.log('Failed to retrieve the Course List: ' + err);
@@ -399,7 +399,7 @@ app.post("/login", function (req, res) {
             }
             else {
                 passport.authenticate("local")(req, res, function () {
-                    res.render("index", {eventData: eventInfo, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment')  });
+                    res.render("index", {eventData: eventInfo, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser, messagesSuccessComment: req.flash('successComment'), messagesErrorComment: req.flash('errorComment')  });
                     // isAuthenticated = false;
                 });
             }
@@ -451,7 +451,7 @@ app.get('/logout', async function (req, res, next) {
         }
         else {
             console.log(isAuthenticated)
-            res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, messagesSuccessComment: req.flash('successComment')  });
+            res.render("index", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, commentData: comment, isAuthenticated: isAuthenticated, isAdmin: isAdmin, messagesSuccessComment: req.flash('successComment'),messagesErrorComment: req.flash('errorComment')  });
         }
     });
 });
@@ -633,37 +633,7 @@ app.get("/contact", async function (req, res) {
 });
 
 
-app.get("/comment", async function (req, res) {
-    let isAuthenticated;
-    let isAdmin;
-    if (req.isAuthenticated()) {
-        var username = req.user.username;
-        isAuthenticated = true;
-        isAdmin = false;
-    }
-    else {
-        isAuthenticated = false;
-        isAdmin = false;
-    }
-    if (req.isAuthenticated()) {
-        const popular = await FrontEvent.find({ frontEvent: "Popular" });
-        const winter = await FrontEvent.find({ frontEvent: "Winter" });
-        const monsoon = await FrontEvent.find({ frontEvent: "Monsoon" });
-        const summer = await FrontEvent.find({ frontEvent: "Summer" });
-        const states = await FrontEvent.find({ frontEvent: "States" });
-        const isuser = await User.findOne({ username: username })
 
-
-        if (popular || winter || monsoon || summer || states) {
-            res.render("comment", { data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser })
-        } else {
-            console.log('Failed to retrieve the Course List: ' + err);
-        }
-    }
-    else {
-        res.redirect("/login");
-    }
-});
 
 
 app.post("/comment", upload.single('profileimg'), function (req, res, next) {
@@ -693,10 +663,13 @@ app.post("/comment", upload.single('profileimg'), function (req, res, next) {
             // res.send("Successfully added new place");
             req.flash('successComment', 'Successfully added your Comment');
             res.redirect("/index")
+            return;
         })
         .catch((err) => {
             console.log(err)
-            res.send(err);
+            req.flash('errorComment', 'Not added your Comment...Please Try Again...');
+            res.redirect("/index")
+            return;
         })
 })
 
@@ -708,15 +681,17 @@ app.post("/deleteComment", async function (req, res) {
 
 
     if (commentDelete) {
+        req.flash('successDeleteComment', 'Successfully Delete Comment');
         res.redirect("/admin")
+        return;
     } else {
         console.log('Failed to retrieve the Course List: ' + err);
+        req.flash('errorDeleteComment', 'Not Deleted Comment Try Again...');
+        res.redirect("/admin")
+        return;
     }
 })
 
-// app.get('/', (req, res) => {
-//     res.render('index', { isAuthenticated });
-// });
 
 
 var uploadMultiple = upload.fields([{ name: 'image2' }, { name: 'image3' }, { name: 'image4' }, { name: 'image5' }])
@@ -762,10 +737,14 @@ app.route("/place")
         newPlace.save()
             .then(() => {
                 // res.send("Successfully added new place");
-                res.redirect("event")
+                req.flash('successEventpage', 'Successfully Added new Event.');
+                res.redirect("/admin");
+                return;
             })
             .catch((err) => {
-                res.send(err);
+                req.flash('errorEventpage', 'Oops... New Event Not Added...');
+                res.redirect("/admin");
+                return;
             })
     })
 
@@ -804,7 +783,18 @@ app.route("/place/:placeTitle")
             console.log(req.params.placeTitle);
             Place.findOne({ placeName: req.params.placeTitle })
                 .then((foundPlace) => {
-                    res.render("place/places", { placeDetail: foundPlace, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser });
+                    res.render("place/places", 
+                    { 
+                        placeDetail: foundPlace, 
+                        data: popular, 
+                        winterData: winter, 
+                        monsoonData: monsoon, 
+                        summerData: summer, 
+                        statesData: states, 
+                        isAuthenticated: isAuthenticated, 
+                        isAdmin: isAdmin, 
+                        isuser: isuser 
+                    });
                 })
                 .catch((err) => {
                     res.send("NO Place matching that title was found");
@@ -840,7 +830,18 @@ app.route("/event")
 
             Event.find({})
                 .then((eventInfo) => {
-                    res.render("event", { eventData: eventInfo, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser })
+                    res.render("event", 
+                    { 
+                        eventData: eventInfo, 
+                        data: popular, 
+                        winterData: winter, 
+                        monsoonData: monsoon, 
+                        summerData: summer, 
+                        statesData: states, 
+                        isAuthenticated: isAuthenticated, 
+                        isAdmin: isAdmin, 
+                        isuser: isuser 
+                    })
                 })
                 .catch(err => {
                     console.log('Failed to retrieve the Course List: ' + err);
@@ -859,7 +860,18 @@ app.route("/event")
 
             Event.find({})
                 .then((eventInfo) => {
-                    res.render("event", { eventData: eventInfo, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, isAuthenticated: isAuthenticated, isAdmin: isAdmin, isuser: isuser })
+                    res.render("event", 
+                    { 
+                        eventData: eventInfo, 
+                        data: popular, 
+                        winterData: winter, 
+                        monsoonData: monsoon, 
+                        summerData: summer, 
+                        statesData: states, 
+                        isAuthenticated: isAuthenticated, 
+                        isAdmin: isAdmin, 
+                        isuser: isuser 
+                    })
                 })
                 .catch(err => {
                     console.log('Failed to retrieve the Course List: ' + err);
@@ -876,7 +888,9 @@ app.post("/deleteEvent", async function (req, res) {
 
 
     if (eventDelete || placeDelete || frontEventDelete) {
-        res.redirect("/event")
+        req.flash('successEventDelete', 'Successfully Delete Event.');
+        res.redirect("/admin");
+        return;
     } else {
         console.log('Failed to retrieve the Course List: ' + err);
     }
@@ -906,28 +920,19 @@ app.get("/hotel", function (req, res) {
     }
 })
 
-app.post("/deleteEvent", async function (req, res) {
-    console.log(req.body.placeName);
 
-    const eventDelete = await Event.deleteOne({ placeName: req.body.placeName });
-    const placeDelete = await Place.deleteOne({ placeName: req.body.placeName });
-    const frontEventDelete = await FrontEvent.deleteOne({ placeName: req.body.placeName });
-
-
-    if (eventDelete || placeDelete || frontEventDelete) {
-        res.redirect("/event")
-    } else {
-        console.log('Failed to retrieve the Course List: ' + err);
-    }
-    
-});
 
 app.post("/hotel", function (req, res) {
     let price = req.body.price;
     let pName = req.body.pName;
     let hName = req.body.hName;
     if(req.isAuthenticated()){
-        res.render("hotel", { priceval: price, packageName: pName, hotelName: hName });
+        res.render("hotel", 
+        { 
+            priceval: price, 
+            packageName: pName, 
+            hotelName: hName 
+        });
     }else{
         res.redirect("/login")
     }
@@ -973,7 +978,21 @@ app.post("/booking", function (req, res) {
 
     newUser1.save()
         .then(result => {
-            res.render("booking", { packageName: pName, city: city, roomType: roomType, date: date, firstName: firstName, lastName: lastName, phone: phone, email: email, adharNumber: adharNumber, priceval: price, hotelName: hName, amt: amount });
+            res.render("booking", 
+            { 
+                packageName: pName,
+                 city: city, 
+                 roomType: roomType, 
+                 date: date, 
+                 firstName: firstName, 
+                 lastName: lastName, 
+                 phone: phone, 
+                 email: email, 
+                 adharNumber: adharNumber, 
+                 priceval: price, 
+                 hotelName: hName, 
+                 amt: amount 
+            });
         })
         .catch(err => {
             console.log(err);
@@ -997,7 +1016,30 @@ app.route("/admin")
         const states = await FrontEvent.find({ frontEvent: "States" });
 
         if (eventData || user1Data || popular || winter || monsoon || summer || states) {
-            res.render("admin", { userdata: user1Data, placeData: eventData, updateData: updateData, commentData: commentData, data: popular, winterData: winter, monsoonData: monsoon, summerData: summer, statesData: states, isAuthenticated: isAuthenticated, isAdmin: isAdmin })
+            res.render("admin", 
+            { 
+                userdata: user1Data,
+                placeData: eventData,
+                updateData: updateData,
+                commentData: commentData, 
+                data: popular, 
+                winterData: winter, 
+                monsoonData: monsoon, 
+                summerData: summer, 
+                statesData: states, 
+                isAuthenticated: isAuthenticated, 
+                isAdmin: isAdmin, 
+                messagesSuccessFrontPageEvent: req.flash('successFrontPageEvent'),
+                messagesErrorFrontPageEvent: req.flash('errorFrontPageEvent'),  
+                messagesSuccessDeleteComment: req.flash('successDeleteComment'),
+                messagesErrorDeleteComment: req.flash('errorDeleteComment'), 
+                messagesSuccessPlaceUpdate: req.flash('successPlaceUpdate'), 
+                messagesErrorPlaceUpdate: req.flash('errorPlaceUpdate'),
+                messagesSuccessEventpage: req.flash('successEventpage'), 
+                messagesErrorEventpage: req.flash('errorEventpage'),
+                messagesSuccessDeleteEvent: req.flash('successEventDelete')
+            })
+                
         } else {
             console.log('Failed to retrieve the Course List: ' + err);
         }
@@ -1046,12 +1088,25 @@ app.post("/adminplace", upload.single('image'), function (req, res, next) {
 
     newEvent.save()
         .then(result => {
-            res.render("adminplace", { placeName: placeName, placesName: placesName, duration: duration, price: price, greeting: greeting, age: age, hotelName: hotelName, area: area, hotelRating: hotelRating, placeContent: placeContent });
+            res.render("adminplace", 
+            { 
+                placeName: placeName, 
+                placesName: placesName, 
+                duration: duration, 
+                price: price, 
+                greeting: greeting, 
+                age: age, 
+                hotelName: hotelName, 
+                area: area, 
+                hotelRating: hotelRating, 
+                placeContent: placeContent 
+            });
         })
         .catch(err => {
             console.log(err);
         })
 })
+
 
 app.post("/adminFrontEvent", upload.single('imagefront'), function (req, res, next) {
     console.log(req.file.filename)
@@ -1067,10 +1122,15 @@ app.post("/adminFrontEvent", upload.single('imagefront'), function (req, res, ne
     })
     newFrontEvent.save()
         .then(result => {
-            res.redirect("/index");
+            req.flash('successFrontPageEvent', 'Event Addend in Front Page Successfully done.');
+            res.redirect("/admin");
+            return;
         })
         .catch(err => {
+            req.flash('errorFrontPageEvent', 'Oops.. Event Not Addend in Front Page.');
+            res.redirect("/admin");
             console.log(err);
+            return;
         })
 })
 
@@ -1101,10 +1161,15 @@ app.route("/placeupdate")
 
 
         if (eventData || placeData) {
-            res.redirect("/admin")
             console.log("Successfully updated place Detail.");
+            req.flash('successPlaceUpdate', 'Event Detail Updated Successfully....');
+            res.redirect("/admin");
+            return;
         } else {
             console.log("NO Place matching that title was found");
+            req.flash('errorPlaceUpdate', 'Oops!..Event Detail Not Updated.');
+            res.redirect("/admin");
+            return;
         }
     })
 
